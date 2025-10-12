@@ -3,18 +3,26 @@
   "outputDirectory": "dist",
   "redirects": [
     {
-      "source": "http://zenaradesigns.com",
-      "destination": "https://zenaradesigns.com",
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.zenaradesigns.com"
+        }
+      ],
+      "destination": "https://zenaradesigns.com/$1",
       "permanent": true
     },
     {
-      "source": "http://www.zenaradesigns.com",
-      "destination": "https://zenaradesigns.com",
-      "permanent": true
-    },
-    {
-      "source": "https://www.zenaradesigns.com",
-      "destination": "https://zenaradesigns.com",
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "header",
+          "key": "x-forwarded-proto",
+          "value": "http"
+        }
+      ],
+      "destination": "https://zenaradesigns.com/$1",
       "permanent": true
     }
   ],
