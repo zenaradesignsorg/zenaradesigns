@@ -36,7 +36,10 @@ const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isButtonHovered, setIsButtonHovered] = useState(false);
   const [isServicesButtonHovered, setIsServicesButtonHovered] = useState(false);
+  const [yearsExperience, setYearsExperience] = useState(0);
   const metricsRef = useRef<HTMLDivElement>(null);
+  const yearsRef = useRef<HTMLDivElement>(null);
+  const yearsAnimatedRef = useRef(false);
   
   useEffect(() => {
     const interval = setInterval(() => {
@@ -129,6 +132,47 @@ const Home = () => {
     return () => {
       heroSection.removeEventListener('mousemove', handleMouseMove);
       heroSection.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, []);
+
+  // Animate years experience from 0 to 6
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !yearsAnimatedRef.current) {
+            yearsAnimatedRef.current = true;
+            const duration = 2000; // 2 seconds
+            const steps = 60;
+            const stepDuration = duration / steps;
+            const target = 6;
+
+            let step = 0;
+            const timer = setInterval(() => {
+              step++;
+              const progress = step / steps;
+              const currentValue = Math.floor(target * progress);
+              setYearsExperience(currentValue);
+
+              if (step >= steps) {
+                clearInterval(timer);
+                setYearsExperience(target);
+              }
+            }, stepDuration);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    if (yearsRef.current) {
+      observer.observe(yearsRef.current);
+    }
+
+    return () => {
+      if (yearsRef.current) {
+        observer.unobserve(yearsRef.current);
+      }
     };
   }, []);
 
@@ -366,6 +410,125 @@ const Home = () => {
         </div>
       </section>
 
+      {/* More Than a Web Design Agency */}
+      <section className="py-16 sm:py-20 md:py-24 lg:py-32 relative overflow-hidden" style={{ backgroundColor: '#e5e7eb' }} aria-label="About Zenara">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+            {/* Left Side - Text Content */}
+            <div className="text-center lg:text-left space-y-4 sm:space-y-6">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight">
+                So much more than <span className="whitespace-nowrap">a web design agency.</span>
+              </h2>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-700 leading-tight">
+                We are your <span className="bg-gradient-to-r from-cyan-600 to-purple-600 bg-clip-text text-transparent">IT team</span>.
+              </h3>
+            </div>
+            
+            {/* Right Side - Years of Experience */}
+            <div className="text-center" ref={yearsRef}>
+              <div className="inline-block">
+                <div className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold bg-gradient-to-r from-cyan-600 via-purple-600 to-violet-600 bg-clip-text text-transparent leading-none">
+                  {yearsExperience}+
+                </div>
+                <div className="text-xl sm:text-2xl md:text-3xl font-semibold text-slate-700 mt-2 sm:mt-4">
+                  Years of Experience
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Divider */}
+      <div className="relative py-8 sm:py-12" style={{ backgroundColor: '#e5e7eb' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="h-[1px] bg-gradient-to-r from-transparent via-cyan-500/60 via-purple-500/60 to-transparent"></div>
+        </div>
+      </div>
+
+      {/* Our Trusted Partners */}
+      <section className="py-16 sm:py-20 md:py-24 relative overflow-hidden" style={{ backgroundColor: '#e5e7eb' }} aria-label="Our Trusted Partners">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+          <div className="text-center mb-12 sm:mb-16">
+            <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+              Our Trusted Partners
+            </h3>
+          </div>
+          
+          {/* Carousel Container */}
+          <div className="relative overflow-hidden">
+            {/* Fade effects */}
+            <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-20 z-10 pointer-events-none" style={{ background: 'linear-gradient(to right, #e5e7eb, transparent)' }}></div>
+            <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-20 z-10 pointer-events-none" style={{ background: 'linear-gradient(to left, #e5e7eb, transparent)' }}></div>
+            
+            <div className="flex animate-scroll-smooth space-x-6 sm:space-x-8 md:space-x-12 lg:space-x-16 relative z-10 py-4">
+              {[
+                'Shiji',
+                'Shopify Plus',
+                'TikTok',
+                'yotpo.',
+                'Zonal',
+                'access',
+                'BigQuery',
+                'Partner 8',
+                'Partner 9',
+                'Partner 10'
+              ].map((partner, index) => (
+                <div key={index} className="flex-shrink-0">
+                  <div className="flex items-center justify-center h-16 sm:h-20 md:h-24 px-6 sm:px-8 md:px-10">
+                    <div className="text-slate-900 text-lg sm:text-xl md:text-2xl font-semibold whitespace-nowrap">
+                      {partner}
+                    </div>
+                  </div>
+                </div>
+              ))}
+              {/* Duplicate for seamless loop */}
+              {[
+                'Shiji',
+                'Shopify Plus',
+                'TikTok',
+                'yotpo.',
+                'Zonal',
+                'access',
+                'BigQuery',
+                'Partner 8',
+                'Partner 9',
+                'Partner 10'
+              ].map((partner, index) => (
+                <div key={`duplicate-${index}`} className="flex-shrink-0">
+                  <div className="flex items-center justify-center h-16 sm:h-20 md:h-24 px-6 sm:px-8 md:px-10">
+                    <div className="text-slate-900 text-lg sm:text-xl md:text-2xl font-semibold whitespace-nowrap">
+                      {partner}
+                    </div>
+                  </div>
+                </div>
+              ))}
+              {/* Third set for seamless loop */}
+              {[
+                'Shiji',
+                'Shopify Plus',
+                'TikTok',
+                'yotpo.',
+                'Zonal',
+                'access',
+                'BigQuery',
+                'Partner 8',
+                'Partner 9',
+                'Partner 10'
+              ].map((partner, index) => (
+                <div key={`duplicate-2-${index}`} className="flex-shrink-0">
+                  <div className="flex items-center justify-center h-16 sm:h-20 md:h-24 px-6 sm:px-8 md:px-10">
+                    <div className="text-slate-900 text-lg sm:text-xl md:text-2xl font-semibold whitespace-nowrap">
+                      {partner}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Bring Your Ideas to Life - Gamma Inspired */}
       <section className="py-16 sm:py-20 md:py-24 relative overflow-hidden bg-gradient-to-br from-slate-900 via-cyan-900 to-slate-900" aria-label="Portfolio showcase">
         {/* Space Background Elements */}
@@ -439,7 +602,7 @@ const Home = () => {
               
               <div className="flex justify-center lg:justify-start">
                 <div 
-                  className={`relative inline-block rounded-full p-[3px] transition-all duration-300 group ${
+                  className={`relative inline-block rounded-full p-[3.5px] transition-all duration-300 group ${
                     isServicesButtonHovered 
                       ? 'bg-purple-500' 
                       : 'bg-gradient-to-r from-cyan-400 via-purple-500 to-violet-500'
@@ -447,10 +610,10 @@ const Home = () => {
                   onMouseEnter={() => setIsServicesButtonHovered(true)}
                   onMouseLeave={() => setIsServicesButtonHovered(false)}
                 >
-                  <Button asChild className="bg-black hover:bg-purple-500 rounded-full text-white shadow-lg hover:shadow-xl transition-all duration-300 px-6 py-4 sm:px-8 sm:py-5 text-base sm:text-lg font-semibold">
+                  <Button asChild className="bg-black hover:bg-purple-500 rounded-full text-white shadow-lg hover:shadow-xl transition-all duration-300 px-7 py-5 sm:px-9 sm:py-6 text-lg sm:text-xl font-semibold">
                     <Link to="/services" className="flex items-center justify-center">
                       Our Services
-                      <Rocket className="ml-2 h-5 w-5 transition-all duration-300 group-hover:text-cyan-400 group-hover:scale-125" />
+                      <Rocket className="ml-2 h-6 w-6 transition-all duration-300 group-hover:text-cyan-400 group-hover:scale-125" />
                     </Link>
                   </Button>
                 </div>
@@ -650,89 +813,6 @@ const Home = () => {
               {/* Fade effects for top and bottom */}
               <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-slate-900 via-cyan-900/50 to-transparent pointer-events-none z-10"></div>
               <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-slate-900 via-cyan-900/50 to-transparent pointer-events-none z-10"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Trusted Partners */}
-      <section className="py-16 sm:py-20 md:py-24 relative overflow-hidden" style={{ backgroundColor: '#e5e7eb' }} aria-label="Our Trusted Partners">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-          <div className="text-center mb-12 sm:mb-16">
-            <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-              Our Trusted Partners
-            </h3>
-          </div>
-          
-          {/* Carousel Container */}
-          <div className="relative overflow-hidden">
-            {/* Fade effects */}
-            <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-20 z-10 pointer-events-none" style={{ background: 'linear-gradient(to right, #e5e7eb, transparent)' }}></div>
-            <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-20 z-10 pointer-events-none" style={{ background: 'linear-gradient(to left, #e5e7eb, transparent)' }}></div>
-            
-            <div className="flex animate-scroll-smooth space-x-6 sm:space-x-8 md:space-x-12 lg:space-x-16 relative z-10 py-4">
-              {[
-                'Shiji',
-                'Shopify Plus',
-                'TikTok',
-                'yotpo.',
-                'Zonal',
-                'access',
-                'BigQuery',
-                'Partner 8',
-                'Partner 9',
-                'Partner 10'
-              ].map((partner, index) => (
-                <div key={index} className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-16 sm:h-20 md:h-24 px-6 sm:px-8 md:px-10">
-                    <div className="text-slate-900 text-lg sm:text-xl md:text-2xl font-semibold whitespace-nowrap">
-                      {partner}
-                    </div>
-                  </div>
-                </div>
-              ))}
-              {/* Duplicate for seamless loop */}
-              {[
-                'Shiji',
-                'Shopify Plus',
-                'TikTok',
-                'yotpo.',
-                'Zonal',
-                'access',
-                'BigQuery',
-                'Partner 8',
-                'Partner 9',
-                'Partner 10'
-              ].map((partner, index) => (
-                <div key={`duplicate-${index}`} className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-16 sm:h-20 md:h-24 px-6 sm:px-8 md:px-10">
-                    <div className="text-slate-900 text-lg sm:text-xl md:text-2xl font-semibold whitespace-nowrap">
-                      {partner}
-                    </div>
-                  </div>
-                </div>
-              ))}
-              {/* Third set for seamless loop */}
-              {[
-                'Shiji',
-                'Shopify Plus',
-                'TikTok',
-                'yotpo.',
-                'Zonal',
-                'access',
-                'BigQuery',
-                'Partner 8',
-                'Partner 9',
-                'Partner 10'
-              ].map((partner, index) => (
-                <div key={`duplicate-2-${index}`} className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-16 sm:h-20 md:h-24 px-6 sm:px-8 md:px-10">
-                    <div className="text-slate-900 text-lg sm:text-xl md:text-2xl font-semibold whitespace-nowrap">
-                      {partner}
-                    </div>
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
         </div>
