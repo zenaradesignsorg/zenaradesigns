@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
-import { Star, ArrowRight, CheckCircle, Layers, Heart, ChevronLeft, ChevronRight, Rocket, TrendingUp } from 'lucide-react';
+import { Star, ArrowRight, CheckCircle, Layers, Heart, ChevronLeft, ChevronRight, Rocket, TrendingUp, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { useScrollToTop, useSEO } from '@/hooks';
 import { useState, useEffect, useRef, memo, useCallback, useMemo } from 'react';
 import StructuredData from '@/components/StructuredData';
@@ -209,7 +210,7 @@ const Services = () => {
     <div className="min-h-screen" role="main" aria-label="Services page">
 
       {/* Services Showcase - Space Theme */}
-      <section className="services-showcase py-16 sm:py-20 md:py-24 relative overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+      <section className="services-showcase pt-32 sm:pt-36 md:pt-40 lg:pt-44 pb-16 sm:pb-20 md:pb-24 relative overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
         {/* Space Background Elements */}
         <div className="absolute inset-0">
           {/* Subtle Stars */}
@@ -226,10 +227,6 @@ const Services = () => {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="text-center mb-12 sm:mb-16 md:mb-20">
-            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-full px-4 py-2 sm:px-6 sm:py-3 mb-6 sm:mb-8 border border-cyan-500/30">
-              <Layers className="h-4 w-4 sm:h-5 sm:w-5 text-cyan-400 animate-pulse" />
-              <span className="text-xs sm:text-sm font-medium text-cyan-300">Our Services</span>
-            </div>
             <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold mb-6 sm:mb-8 text-white relative">
               Complete <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent relative">
                 Digital Solutions
@@ -334,95 +331,117 @@ const Services = () => {
         </div>
       </section>
 
-      {/* FAQ Preview - Space Theme */}
-      <section className="services-faq-preview py-16 sm:py-20 md:py-24 relative overflow-hidden bg-gradient-to-br from-slate-900 via-cyan-900 to-slate-900">
-        {/* Space Background Elements */}
-        <div className="absolute inset-0">
-          {/* Subtle Stars */}
-          <div className="absolute top-16 left-16 w-1 h-1 bg-cyan-300 rounded-full animate-twinkle"></div>
-          <div className="absolute top-32 right-24 w-1 h-1 bg-purple-300 rounded-full animate-twinkle delay-1000"></div>
-          <div className="absolute top-48 left-1/3 w-1 h-1 bg-teal-300 rounded-full animate-twinkle delay-2000"></div>
-          <div className="absolute top-24 right-1/3 w-1 h-1 bg-violet-300 rounded-full animate-twinkle delay-500"></div>
-          
-          {/* Nebula Effects */}
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-purple-500/10 to-teal-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        </div>
-        
+      {/* FAQ Section - White Background */}
+      <section className="services-faq py-16 sm:py-20 md:py-24 relative overflow-hidden" style={{ backgroundColor: '#e5e7eb' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="text-center mb-12 sm:mb-16">
-            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-full px-4 py-2 sm:px-6 sm:py-3 mb-6 sm:mb-8 border border-cyan-500/30">
-              <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5 text-cyan-400 animate-pulse" />
-              <span className="text-xs sm:text-sm font-medium text-cyan-300">Common Questions</span>
-            </div>
-            <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold mb-6 sm:mb-8 text-white">
-              Frequently Asked <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">Questions</span>
+            <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold mb-6 sm:mb-8" style={{ color: '#6b21a8' }}>
+              FAQ
             </h2>
-            <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed px-4">
-              Get quick answers to the most common questions about our web design services
-            </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:items-start">
+            {/* Left Column Accordion */}
+            <Accordion type="single" collapsible className="w-full space-y-4 sm:space-y-6 flex flex-col">
             {[
               {
+                  value: "left-item-1",
                 question: "How long does it take to build a website?",
-                answer: "Most websites are completed within 2-4 weeks, depending on complexity and requirements."
-              },
-              {
+                  answer: "Most websites are completed within 2-4 weeks, depending on complexity and requirements. Simple sites can be ready in 1-2 weeks, while more complex projects with custom features may take 3-4 weeks. We work efficiently while ensuring quality results."
+                },
+                {
+                  value: "left-item-2",
+                  question: "What's included in your web design package?",
+                  answer: "Our packages include custom design, fully responsive development, SEO optimization, SSL security setup, performance optimization, and post-launch support. We also provide brand guidelines, logo design options, and business card design as part of our comprehensive service."
+                },
+                {
+                  value: "left-item-3",
                 question: "Do you provide hosting and maintenance?",
-                answer: "Yes! We offer comprehensive hosting solutions with 99.9% uptime and ongoing maintenance support."
-              },
-              {
-                question: "What's included in your web design package?",
-                answer: "Custom design, responsive development, SEO optimization, security setup, and 3 months of free support."
-              },
-              {
-                question: "Can you help with existing websites?",
-                answer: "Absolutely! We specialize in website redesigns, updates, and performance improvements."
-              }
-            ].map((faq, index) => (
-              <div key={index} className="group">
-                <div className="bg-white/10 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-white/20 shadow-2xl hover:shadow-cyan-500/20 transition-all duration-500 h-full relative overflow-hidden">
-                  {/* Glassmorphism Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-3xl"></div>
-                  
-                  {/* Glow Effect on Hover */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  
-                  <div className="relative z-10">
-                    <h3 className="text-lg sm:text-xl font-bold text-white mb-4 group-hover:text-cyan-300 transition-colors">
-                      {faq.question}
-                    </h3>
-                    <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                  answer: "Yes! We offer comprehensive hosting solutions with 99.9% uptime guarantee, automated backups, and ongoing maintenance support. Our hosting plans include SSL certificates, CDN integration, and 24/7 monitoring. We also provide monthly maintenance packages for updates and support."
+                },
+                {
+                  value: "left-item-4",
+                  question: "Can you help with existing websites?",
+                  answer: "Absolutely! We specialize in website redesigns, updates, and performance improvements. Whether you need a complete overhaul or just want to modernize specific sections, we can help transform your existing site into something that better serves your business goals."
+                },
+                {
+                  value: "left-item-5",
+                  question: "What makes your websites different?",
+                  answer: "We focus on business results, not just aesthetics. Every design decision is made with conversion optimization in mind. We use modern, fast-loading technologies, ensure mobile-first responsive design, and build with SEO best practices from day one. Plus, you get direct access to our team throughout the project."
+                }
+              ].map((faq) => (
+                <AccordionItem 
+                  key={faq.value} 
+                  value={faq.value}
+                  className="border border-purple-200 rounded-xl bg-white data-[state=open]:bg-purple-600 data-[state=open]:border-purple-600 transition-all duration-200 relative overflow-hidden min-h-[80px] sm:min-h-[90px] flex flex-col"
+                >
+                  {/* Purple vertical bar on the left */}
+                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-purple-600 rounded-l-xl z-10"></div>
+                  <AccordionTrigger 
+                    className="px-4 sm:px-6 py-4 sm:py-5 hover:no-underline text-left data-[state=open]:text-white data-[state=closed]:text-purple-800 relative overflow-hidden group w-full min-h-[80px] sm:min-h-[90px] flex items-center pl-5 sm:pl-7"
+                  >
+                    {/* Hover background animation - left to right */}
+                    <div className="absolute inset-0 bg-purple-600 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out z-0 rounded-xl"></div>
+                    <span className="font-semibold text-base sm:text-lg pr-4 flex-1 relative z-10 group-hover:text-white transition-colors duration-300">{faq.question}</span>
+                    <ChevronDown className="h-5 w-5 shrink-0 data-[state=closed]:text-purple-600 data-[state=open]:text-white group-hover:text-white transition-all duration-200 relative z-10" />
+                  </AccordionTrigger>
+                  <AccordionContent className="px-4 sm:px-6 pb-4 sm:pb-5 text-white text-sm sm:text-base leading-relaxed">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+
+            {/* Right Column Accordion */}
+            <Accordion type="single" collapsible className="w-full space-y-4 sm:space-y-6 flex flex-col">
+              {[
+                {
+                  value: "right-item-1",
+                  question: "Do you offer payment plans?",
+                  answer: "Yes! We offer flexible payment options with 50% upfront and 50% on completion for all projects. For larger projects over $10,000, we can discuss custom payment schedules. We accept e-transfers, cheques, and credit cards to make it convenient for you."
+                },
+                {
+                  value: "right-item-2",
+                  question: "Will my website work on mobile devices?",
+                  answer: "Absolutely! Every website we build is fully responsive and mobile-optimized. We use a mobile-first approach, ensuring your site looks and works perfectly on smartphones, tablets, and all screen sizes. Mobile optimization is included in all our packages."
+                },
+                {
+                  value: "right-item-3",
+                  question: "What if I need changes after launch?",
+                  answer: "All our packages include post-launch support (14-60 days depending on your plan). After that, we offer flexible maintenance packages for ongoing updates, content changes, security updates, and technical support. We're here for the long term."
+                },
+                {
+                  value: "right-item-4",
+                  question: "Do you provide business card and logo design?",
+                  answer: "Yes! We offer complete brand identity services including custom logo design, business card design with print-ready files, brand guidelines, and social media profile setup. Our brand packages range from basic logo design to comprehensive brand identity systems."
+                },
+                {
+                  value: "right-item-5",
+                  question: "How do I get started?",
+                  answer: "Getting started is easy! Simply contact us through our contact form or schedule a free consultation. We'll discuss your project goals, timeline, and budget, then provide a detailed proposal. Once approved, we'll begin the design process and keep you involved every step of the way."
+                }
+              ].map((faq) => (
+                <AccordionItem 
+                  key={faq.value} 
+                  value={faq.value}
+                  className="border border-purple-200 rounded-xl bg-white data-[state=open]:bg-purple-600 data-[state=open]:border-purple-600 transition-all duration-200 relative overflow-hidden min-h-[80px] sm:min-h-[90px] flex flex-col"
+                >
+                  {/* Purple vertical bar on the left */}
+                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-purple-600 rounded-l-xl z-10"></div>
+                  <AccordionTrigger 
+                    className="px-4 sm:px-6 py-4 sm:py-5 hover:no-underline text-left data-[state=open]:text-white data-[state=closed]:text-purple-800 relative overflow-hidden group w-full min-h-[80px] sm:min-h-[90px] flex items-center pl-5 sm:pl-7"
+                  >
+                    {/* Hover background animation - left to right */}
+                    <div className="absolute inset-0 bg-purple-600 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out z-0 rounded-xl"></div>
+                    <span className="font-semibold text-base sm:text-lg pr-4 flex-1 relative z-10 group-hover:text-white transition-colors duration-300">{faq.question}</span>
+                    <ChevronDown className="h-5 w-5 shrink-0 data-[state=closed]:text-purple-600 data-[state=open]:text-white group-hover:text-white transition-all duration-200 relative z-10" />
+                  </AccordionTrigger>
+                  <AccordionContent className="px-4 sm:px-6 pb-4 sm:pb-5 text-white text-sm sm:text-base leading-relaxed">
                       {faq.answer}
-                    </p>
-                  </div>
-                  
-                  {/* Decorative Elements */}
-                  <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500/30 to-purple-500/30 rounded-lg blur opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
-                </div>
-              </div>
-            ))}
-          </div>
-          
-          {/* CTA Button */}
-          <div className="text-center mt-12">
-            <div 
-              className="relative inline-block rounded-full p-[4px] transition-all duration-300 group"
-              style={{
-                background: 'linear-gradient(to right, rgb(34, 211, 238), rgb(168, 85, 247), rgb(139, 92, 246))'
-              }}
-              onMouseEnter={(e) => e.currentTarget.style.background = 'rgb(168, 85, 247)'}
-              onMouseLeave={(e) => e.currentTarget.style.background = 'linear-gradient(to right, rgb(34, 211, 238), rgb(168, 85, 247), rgb(139, 92, 246))'}
-            >
-              <Button asChild className="bg-black hover:bg-purple-500 rounded-full text-white shadow-lg hover:shadow-xl transition-all duration-300 px-8 py-4 sm:px-10 sm:py-5 text-base sm:text-lg font-semibold">
-                <Link to="/faq" className="flex items-center justify-center">
-                  View All FAQ
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-            </div>
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </div>
         </div>
       </section>
@@ -574,10 +593,10 @@ const Services = () => {
                 >
                   <Button asChild className="bg-black hover:bg-purple-500 rounded-full text-white shadow-lg hover:shadow-xl transition-all duration-300 px-6 py-4 sm:px-8 sm:py-5 md:px-10 md:py-6 text-base sm:text-lg font-semibold w-full sm:w-auto">
                     <Link to="/contact" className="flex items-center justify-center">
-                      Start Your Project
+                    Start Your Project
                       <Rocket className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transition-all duration-300 group-hover:text-cyan-400 group-hover:scale-125" />
-                    </Link>
-                  </Button>
+                  </Link>
+                </Button>
                 </div>
               </div>
               <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 md:space-x-8 text-slate-400">
@@ -670,10 +689,10 @@ const Services = () => {
             >
               <Button asChild className="bg-black hover:bg-purple-500 rounded-full text-white shadow-lg hover:shadow-xl transition-all duration-300 px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base font-semibold">
                 <Link to="/locations" className="flex items-center justify-center">
-                  Explore All Service Areas
-                  <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
-                </Link>
-              </Button>
+                Explore All Service Areas
+                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+              </Link>
+            </Button>
             </div>
           </div>
           

@@ -122,6 +122,34 @@
     display: none;
   }
 
+  /* Services FAQ Accordion Styling */
+  .services-faq [data-state="open"] .accordion-trigger {
+    color: white !important;
+  }
+
+  .services-faq [data-state="closed"] .accordion-trigger {
+    color: #6b21a8 !important;
+  }
+
+  /* Uniform height for FAQ accordion items */
+  .services-faq [data-radix-accordion-item] {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .services-faq [data-radix-accordion-trigger] {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    min-height: 80px;
+  }
+
+  @media (min-width: 640px) {
+    .services-faq [data-radix-accordion-trigger] {
+      min-height: 90px;
+    }
+  }
+
   /* Image optimization */
   img {
     max-width: 100%;

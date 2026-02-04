@@ -17,21 +17,36 @@ AccordionItem.displayName = "AccordionItem";
 const AccordionTrigger = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>
->(({ className, children, ...props }, ref) => (
-  <AccordionPrimitive.Header className="flex">
-    <AccordionPrimitive.Trigger
-      ref={ref}
-      className={cn(
-        "flex flex-1 items-center justify-between py-4 font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-180",
-        className,
-      )}
-      {...props}
-    >
-      {children}
-      <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200" />
-    </AccordionPrimitive.Trigger>
-  </AccordionPrimitive.Header>
-));
+>(({ className, children, ...props }, ref) => {
+  // Check if className indicates custom chevron (has "w-full" or similar custom styling)
+  const hasCustomChevron = className?.includes('w-full') || 
+    React.Children.toArray(children).some((child) => {
+      if (React.isValidElement(child)) {
+        // Check if any child is a ChevronDown by looking at props
+        const childProps = child.props as any;
+        if (childProps?.className?.includes('shrink-0') && childProps?.className?.includes('h-5')) {
+          return true;
+        }
+      }
+      return false;
+    });
+  
+  return (
+    <AccordionPrimitive.Header className="flex">
+      <AccordionPrimitive.Trigger
+        ref={ref}
+        className={cn(
+          "flex flex-1 items-center justify-between py-4 font-medium transition-all hover:no-underline [&[data-state=open]>svg]:rotate-180",
+          className,
+        )}
+        {...props}
+      >
+        {children}
+        {!hasCustomChevron && <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200" />}
+      </AccordionPrimitive.Trigger>
+    </AccordionPrimitive.Header>
+  );
+});
 AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName;
 
 const AccordionContent = React.forwardRef<
