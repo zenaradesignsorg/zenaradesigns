@@ -852,6 +852,26 @@
   100% { transform: translateY(-50%); }
 }
 
+/* Auto-scrolling horizontal carousel */
+@keyframes scroll-horizontal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll-horizontal 30s linear infinite;
+  display: flex;
+  width: fit-content;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
 .animate-vertical-scroll {
   animation: vertical-scroll 15s linear infinite;
 }

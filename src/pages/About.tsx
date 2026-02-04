@@ -32,17 +32,17 @@ const About = () => {
     {
       name: "Pratik Mistry",
       role: "Lead Developer", 
-      bio: "4-5 years of experience in software engineering with a strong foundation in computer science. Passionate about building scalable and efficient web applications."
+      bio: "4-5 years of experience in software engineering with a Computer Engineering degree from University of Ottawa. Passionate about building scalable and efficient web applications."
     },
     {
       name: "Kavin Mural",
       role: "Lead Developer",
-      bio: "4-5 years of experience in software engineering with a computer science background. Specializes in modern web technologies and full-stack development."
+      bio: "4-5 years of experience in software engineering with a Computer Science degree from University of Waterloo. Specializes in modern web technologies and full-stack development."
     },
     {
       name: "Ryan Honeybone", 
       role: "UX/UI Designer",
-      bio: "3 years of experience in design with a strong educational background in design principles. Creates intuitive and beautiful user experiences that drive engagement."
+      bio: "3 years of experience in design with a strong educational background from McGill University. Creates intuitive and beautiful user experiences that drive engagement."
     }
   ], []);
 
@@ -275,12 +275,8 @@ const About = () => {
           <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-purple-500/20 to-teal-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div>
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 pt-24 sm:pt-32 md:pt-40 lg:pt-44">
           <div className="text-center mb-12 sm:mb-16 md:mb-20">
-            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-full px-4 py-2 sm:px-6 sm:py-3 mb-6 sm:mb-8 border border-cyan-500/30">
-              <Sparkles className="h-4 w-4 sm:h-5 sm:w-5 text-cyan-400 animate-pulse" />
-              <span className="text-xs sm:text-sm font-medium text-cyan-300">About Zenara Designs</span>
-            </div>
             <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 text-white leading-tight">
               We're not just developers,<br />
               <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">we're digital architects</span>
@@ -305,6 +301,53 @@ const About = () => {
                     <Rocket className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transition-all duration-300 group-hover:text-cyan-400 group-hover:scale-125" />
                   </Link>
                 </Button>
+              </div>
+            </div>
+
+            {/* Auto-scrolling Carousel */}
+            <div className="mt-12 sm:mt-16 md:mt-20 overflow-hidden relative">
+              <div 
+                className="flex gap-8 sm:gap-12" 
+                style={{ 
+                  width: 'fit-content',
+                  animation: 'scroll-horizontal 30s linear infinite'
+                }}
+              >
+                {[
+                  "Speed with Quality",
+                  "Transparent Communication",
+                  "Results-Driven Design",
+                  "Clarity over Complexity",
+                  "Security First",
+                  "Fair Pricing"
+                ].map((title, index) => (
+                  <div key={index} className="flex-shrink-0">
+                    <div className="inline-flex items-center space-x-3 bg-white/10 backdrop-blur-md rounded-full px-6 py-3 sm:px-8 sm:py-4 border border-white/20">
+                      <div className="w-2 h-2 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full"></div>
+                      <span className="text-white text-sm sm:text-base md:text-lg font-medium whitespace-nowrap">
+                        {title}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+                {/* Duplicate for seamless loop */}
+                {[
+                  "Speed with Quality",
+                  "Transparent Communication",
+                  "Results-Driven Design",
+                  "Clarity over Complexity",
+                  "Security First",
+                  "Fair Pricing"
+                ].map((title, index) => (
+                  <div key={`duplicate-${index}`} className="flex-shrink-0">
+                    <div className="inline-flex items-center space-x-3 bg-white/10 backdrop-blur-md rounded-full px-6 py-3 sm:px-8 sm:py-4 border border-white/20">
+                      <div className="w-2 h-2 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full"></div>
+                      <span className="text-white text-sm sm:text-base md:text-lg font-medium whitespace-nowrap">
+                        {title}
+                      </span>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -346,157 +389,7 @@ const About = () => {
         </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-          <div className="text-center mb-12 sm:mb-16 md:mb-20">
-            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-full px-4 py-2 sm:px-6 sm:py-3 mb-6 sm:mb-8 border border-cyan-500/30">
-              <Heart className="h-4 w-4 sm:h-5 sm:w-5 text-cyan-400 animate-pulse" />
-              <span className="text-xs sm:text-sm font-medium text-cyan-300">Why Choose Us</span>
-            </div>
-            <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold mb-6 sm:mb-8 text-white">
-              The <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">Zenara Difference</span>
-            </h2>
-            <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-4xl mx-auto leading-relaxed px-4">
-              We're not just another web agency. We're your strategic partner in digital success, combining technical excellence with business acumen.
-            </p>
-          </div>
-          
-          {/* Hexagonal Grid Layout */}
-          <div className="relative max-w-6xl mx-auto">
-            {/* Top Row */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8">
-              {[
-                { icon: <Zap className="h-8 w-8" />, title: "Speed with Quality", description: "Fast delivery without compromising on excellence" },
-                { icon: <Heart className="h-8 w-8" />, title: "Transparent Communication", description: "Honest, clear communication throughout every project" },
-                { icon: <Target className="h-8 w-8" />, title: "Results-Driven Design", description: "Every decision made with your business goals in mind" }
-              ].map((item, index) => (
-                <div key={index} className="group relative">
-                  {/* Space-themed Hexagonal Card */}
-                  <div className="hexagon-card relative bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl rounded-3xl overflow-hidden">
-                    {/* Glassmorphism Effect */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-3xl"></div>
-                    
-                    {/* Glow Effect on Hover */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    
-                    {/* Rounded Hexagon shape using CSS clip-path */}
-                    <div className="p-6 sm:p-8 text-center relative z-10" style={{
-                      clipPath: 'polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)',
-                      minHeight: '280px',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      paddingTop: '1.5rem',
-                      paddingBottom: '1.5rem'
-                    }}>
-                      
-                      {/* Icon */}
-                      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-cyan-500 to-purple-600 rounded-2xl mx-auto mb-4 sm:mb-6 flex items-center justify-center text-white group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg">
-                        {item.icon}
-                      </div>
-                      
-                      {/* Content */}
-                      <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-white">{item.title}</h3>
-                      <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">{item.description}</p>
-                    </div>
-                    
-                    {/* Decorative Elements */}
-                    <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500/30 to-purple-500/30 rounded-lg blur opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
-                  </div>
-                  </div>
-                ))}
-            </div>
-            
-            {/* Central Connecting Element with Dividers */}
-            <div className="flex items-center justify-center mb-6 sm:mb-8 hidden lg:flex">
-              {/* Left Divider */}
-              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-cyan-500/30 to-cyan-500/50"></div>
-              
-              {/* Central Element */}
-              <div className="mx-6 sm:mx-8 w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 rounded-full flex items-center justify-center border-2 border-cyan-500/30 backdrop-blur-md shadow-2xl">
-                <img 
-                  src={logo} 
-                  alt="Zenara Designs - Professional Web Design Agency Toronto Logo" 
-                  width="60"
-                  height="16"
-                  className="w-16 h-16 sm:w-24 sm:h-24 object-contain"
-                  loading="eager"
-                  decoding="async"
-                />
-              </div>
-              
-              {/* Right Divider */}
-              <div className="flex-1 h-px bg-gradient-to-l from-transparent via-purple-500/30 to-purple-500/50"></div>
-            </div>
-            
-            {/* Bottom Row */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8">
-              {[
-                { icon: <Rocket className="h-8 w-8" />, title: "Clarity over Complexity", description: "Simple solutions that work beautifully" },
-                { icon: <Shield className="h-8 w-8" />, title: "Security First", description: "Built with enterprise-grade security standards" },
-                { icon: <TrendingUp className="h-8 w-8" />, title: "Fair Pricing", description: "Transparent, competitive pricing for all budgets" }
-              ].map((item, index) => (
-                <div key={index + 3} className="group relative">
-                  {/* Space-themed Hexagonal Card */}
-                  <div className="hexagon-card relative bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl rounded-3xl overflow-hidden">
-                    {/* Glassmorphism Effect */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-3xl"></div>
-                    
-                    {/* Glow Effect on Hover */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    
-                    {/* Rounded Hexagon shape using CSS clip-path */}
-                    <div className="p-6 sm:p-8 text-center relative z-10" style={{
-                      clipPath: 'polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)',
-                      minHeight: '280px',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      paddingTop: '1.5rem',
-                      paddingBottom: '1.5rem'
-                    }}>
-                      
-                      {/* Icon */}
-                      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-purple-500 to-cyan-600 rounded-2xl mx-auto mb-4 sm:mb-6 flex items-center justify-center text-white group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg">
-                        {item.icon}
-                      </div>
-                      
-                      {/* Content */}
-                      <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-white">{item.title}</h3>
-                      <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">{item.description}</p>
-                  </div>
-                    
-                    {/* Decorative Elements */}
-                    <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/30 to-cyan-500/30 rounded-lg blur opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Dream Team - Space Theme */}
-      <section className="about-section py-16 sm:py-20 md:py-24 relative overflow-hidden bg-gradient-to-br from-black via-slate-900 to-purple-900">
-        {/* Space Background Elements */}
-        <div className="absolute inset-0">
-          {/* Shooting Stars */}
-          <div className="absolute top-20 left-20 w-2 h-2 bg-cyan-400 rounded-full animate-twinkle"></div>
-          <div className="absolute top-40 right-32 w-1 h-1 bg-purple-400 rounded-full animate-twinkle delay-1000"></div>
-          <div className="absolute top-60 left-1/3 w-1 h-1 bg-teal-400 rounded-full animate-twinkle delay-2000"></div>
-          <div className="absolute top-32 right-1/4 w-1 h-1 bg-violet-400 rounded-full animate-twinkle delay-500"></div>
-          
-          {/* Nebula Effects */}
-          <div className="absolute top-1/3 left-1/3 w-96 h-96 bg-gradient-to-r from-cyan-500/15 to-purple-500/15 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/3 right-1/3 w-80 h-80 bg-gradient-to-r from-purple-500/15 to-teal-500/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="text-center mb-12 sm:mb-16">
-            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-full px-4 py-2 sm:px-6 sm:py-3 mb-6 sm:mb-8 border border-cyan-500/30">
-              <Users className="h-4 w-4 sm:h-5 sm:w-5 text-cyan-400 animate-pulse" />
-              <span className="text-xs sm:text-sm font-medium text-cyan-300">Meet Our Team</span>
-            </div>
             <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold mb-6 sm:mb-8 text-white">
               The <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">Dream Team</span>
             </h2>
@@ -656,65 +549,6 @@ const About = () => {
                     )}
               </div>
             ))}
-              </div>
-            </div>
-          </div>
-          
-          {/* CTA Button */}
-          <div className="text-center mt-12 sm:mt-16">
-            <div className="relative max-w-3xl mx-auto">
-              {/* Enhanced Background with Gradient Border */}
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-teal-500/20 rounded-3xl blur-sm"></div>
-              <div className="relative bg-gradient-to-br from-slate-800/90 via-slate-900/90 to-black/90 backdrop-blur-xl rounded-3xl p-8 sm:p-10 border border-white/10 shadow-2xl">
-                {/* Decorative Elements */}
-                <div className="absolute top-4 right-4 w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
-                <div className="absolute bottom-4 left-4 w-1 h-1 bg-purple-400 rounded-full animate-pulse delay-1000"></div>
-                
-                <div className="relative z-10">
-                  <div className="flex items-center justify-center mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-purple-600 rounded-2xl flex items-center justify-center mr-4">
-                      <Code2 className="h-6 w-6 text-white" />
-                    </div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-white">
-                      Ready to See Our Process?
-                    </h3>
-                  </div>
-                  <p className="text-slate-300 mb-8 text-base sm:text-lg max-w-2xl mx-auto">
-                    Discover our detailed 6-step methodology, from discovery to launch and beyond. See exactly how we transform your vision into digital reality.
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <div 
-                      className="relative inline-block rounded-full p-[4px] transition-all duration-300 group"
-                      style={{
-                        background: 'linear-gradient(to right, rgb(34, 211, 238), rgb(168, 85, 247), rgb(139, 92, 246))'
-                      }}
-                      onMouseEnter={(e) => e.currentTarget.style.background = 'rgb(168, 85, 247)'}
-                      onMouseLeave={(e) => e.currentTarget.style.background = 'linear-gradient(to right, rgb(34, 211, 238), rgb(168, 85, 247), rgb(139, 92, 246))'}
-                    >
-                      <Button asChild className="bg-black hover:bg-purple-500 rounded-full text-white shadow-lg hover:shadow-xl transition-all duration-300 px-8 py-4 text-base font-semibold">
-                        <Link to="/process" className="flex items-center justify-center">
-                          Explore Our Process
-                          <ArrowRight className="ml-2 h-5 w-5" />
-                        </Link>
-                      </Button>
-                    </div>
-                    <div 
-                      className="relative inline-block rounded-full p-[4px] transition-all duration-300 group"
-                      style={{
-                        background: 'linear-gradient(to right, rgb(34, 211, 238), rgb(168, 85, 247), rgb(139, 92, 246))'
-                      }}
-                      onMouseEnter={(e) => e.currentTarget.style.background = 'rgb(168, 85, 247)'}
-                      onMouseLeave={(e) => e.currentTarget.style.background = 'linear-gradient(to right, rgb(34, 211, 238), rgb(168, 85, 247), rgb(139, 92, 246))'}
-                    >
-                      <Button asChild className="bg-black hover:bg-purple-500 rounded-full text-white shadow-lg hover:shadow-xl transition-all duration-300 px-8 py-4 text-base font-semibold">
-                        <Link to="/contact" className="flex items-center justify-center">
-                          Start Your Project
-                          <Rocket className="ml-2 h-5 w-5 transition-all duration-300 group-hover:text-cyan-400 group-hover:scale-125" />
-                        </Link>
-                      </Button>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
