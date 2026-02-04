@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -80,6 +80,31 @@
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-size: 16px; /* Base font size for accessibility */
+  }
+  
+  /* Typography Best Practices */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+  
+  p {
+    font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+  }
+  
+  a {
+    font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    transition: color 0.2s ease;
+  }
+  
+  button {
+    font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
 
   body {
@@ -509,9 +534,12 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Montserrat', system-ui, sans-serif;
+    font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     margin: 0;
     padding: 0;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
   }
   
   /* Ensure hero section starts from top */
@@ -685,12 +713,12 @@
   /* Hero Button Variants */
   .btn-hero {
     @apply bg-gradient-to-r from-accent to-secondary text-accent-foreground px-8 py-4 rounded-2xl font-semibold transition-all duration-300 hover:shadow-glow hover:scale-105;
-    font-family: 'Montserrat', system-ui, sans-serif;
+    font-family: 'Poppins', system-ui, sans-serif;
   }
   
   .btn-ghost {
     @apply border-2 border-primary text-primary px-8 py-4 rounded-2xl font-semibold transition-all duration-300 hover:bg-primary hover:text-primary-foreground;
-    font-family: 'Montserrat', system-ui, sans-serif;
+    font-family: 'Poppins', system-ui, sans-serif;
   }
   
   /* Glassy Navbar */

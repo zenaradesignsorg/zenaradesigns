@@ -35,6 +35,7 @@ const Home = () => {
   });
   const [isVisible, setIsVisible] = useState(false);
   const [isButtonHovered, setIsButtonHovered] = useState(false);
+  const [isServicesButtonHovered, setIsServicesButtonHovered] = useState(false);
   const metricsRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
@@ -365,125 +366,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Tech Stack & Capabilities Carousel */}
-      <section className="py-16 sm:py-20 md:py-24 relative overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900" aria-label="Performance metrics">
-        {/* Background Stars */}
-        <div className="absolute inset-0">
-          {/* Small stars */}
-          <div className="bg-star" style={{ top: '5%', left: '3%' }}></div>
-          <div className="bg-star" style={{ top: '8%', left: '12%' }}></div>
-          <div className="bg-star" style={{ top: '12%', left: '25%' }}></div>
-          <div className="bg-star" style={{ top: '6%', left: '38%' }}></div>
-          <div className="bg-star" style={{ top: '15%', left: '45%' }}></div>
-          <div className="bg-star" style={{ top: '9%', left: '58%' }}></div>
-          <div className="bg-star" style={{ top: '18%', left: '68%' }}></div>
-          <div className="bg-star" style={{ top: '7%', left: '78%' }}></div>
-          <div className="bg-star" style={{ top: '14%', left: '88%' }}></div>
-          <div className="bg-star" style={{ top: '11%', left: '95%' }}></div>
-          
-          <div className="bg-star" style={{ top: '25%', left: '2%' }}></div>
-          <div className="bg-star" style={{ top: '22%', left: '15%' }}></div>
-          <div className="bg-star" style={{ top: '28%', left: '28%' }}></div>
-          <div className="bg-star" style={{ top: '31%', left: '42%' }}></div>
-          <div className="bg-star" style={{ top: '26%', left: '55%' }}></div>
-          <div className="bg-star" style={{ top: '33%', left: '65%' }}></div>
-          <div className="bg-star" style={{ top: '29%', left: '75%' }}></div>
-          <div className="bg-star" style={{ top: '35%', left: '85%' }}></div>
-          <div className="bg-star" style={{ top: '24%', left: '92%' }}></div>
-          
-          <div className="bg-star" style={{ top: '45%', left: '5%' }}></div>
-          <div className="bg-star" style={{ top: '48%', left: '18%' }}></div>
-          <div className="bg-star" style={{ top: '42%', left: '32%' }}></div>
-          <div className="bg-star" style={{ top: '51%', left: '48%' }}></div>
-          <div className="bg-star" style={{ top: '47%', left: '62%' }}></div>
-          <div className="bg-star" style={{ top: '44%', left: '72%' }}></div>
-          <div className="bg-star" style={{ top: '49%', left: '82%' }}></div>
-          <div className="bg-star" style={{ top: '46%', left: '95%' }}></div>
-          
-          <div className="bg-star" style={{ top: '65%', left: '3%' }}></div>
-          <div className="bg-star" style={{ top: '68%', left: '16%' }}></div>
-          <div className="bg-star" style={{ top: '72%', left: '29%' }}></div>
-          <div className="bg-star" style={{ top: '66%', left: '41%' }}></div>
-          <div className="bg-star" style={{ top: '69%', left: '54%' }}></div>
-          <div className="bg-star" style={{ top: '74%', left: '67%' }}></div>
-          <div className="bg-star" style={{ top: '71%', left: '79%' }}></div>
-          <div className="bg-star" style={{ top: '67%', left: '89%' }}></div>
-          <div className="bg-star" style={{ top: '73%', left: '96%' }}></div>
-          
-          <div className="bg-star" style={{ top: '85%', left: '7%' }}></div>
-          <div className="bg-star" style={{ top: '88%', left: '21%' }}></div>
-          <div className="bg-star" style={{ top: '82%', left: '35%' }}></div>
-          <div className="bg-star" style={{ top: '86%', left: '49%' }}></div>
-          <div className="bg-star" style={{ top: '91%', left: '63%' }}></div>
-          <div className="bg-star" style={{ top: '87%', left: '76%' }}></div>
-          <div className="bg-star" style={{ top: '84%', left: '88%' }}></div>
-          <div className="bg-star" style={{ top: '89%', left: '94%' }}></div>
-          
-          {/* Additional scattered stars */}
-          <div className="bg-star" style={{ top: '35%', left: '8%' }}></div>
-          <div className="bg-star" style={{ top: '55%', left: '25%' }}></div>
-          <div className="bg-star" style={{ top: '75%', left: '12%' }}></div>
-          <div className="bg-star" style={{ top: '40%', left: '85%' }}></div>
-          <div className="bg-star" style={{ top: '60%', left: '90%' }}></div>
-          <div className="bg-star" style={{ top: '80%', left: '5%' }}></div>
-          <div className="bg-star" style={{ top: '50%', left: '15%' }}></div>
-          <div className="bg-star" style={{ top: '70%', left: '35%' }}></div>
-          <div className="bg-star" style={{ top: '30%', left: '55%' }}></div>
-          <div className="bg-star" style={{ top: '90%', left: '45%' }}></div>
-          <div className="bg-star" style={{ top: '20%', left: '70%' }}></div>
-          <div className="bg-star" style={{ top: '60%', left: '50%' }}></div>
-          <div className="bg-star" style={{ top: '40%', left: '20%' }}></div>
-          <div className="bg-star" style={{ top: '80%', left: '60%' }}></div>
-          <div className="bg-star" style={{ top: '25%', left: '40%' }}></div>
-          <div className="bg-star" style={{ top: '75%', left: '80%' }}></div>
-          <div className="bg-star" style={{ top: '45%', left: '70%' }}></div>
-          <div className="bg-star" style={{ top: '65%', left: '10%' }}></div>
-          <div className="bg-star" style={{ top: '35%', left: '60%' }}></div>
-          <div className="bg-star" style={{ top: '85%', left: '30%' }}></div>
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-full px-6 py-3 mb-6 border border-cyan-500/30">
-              <Sparkles className="h-5 w-5 text-cyan-400 animate-pulse" />
-              <span className="text-sm font-medium text-cyan-300">Powered by Modern Technology</span>
-            </div>
-            <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
-              Built for the <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">Future</span>
-            </h3>
-            <p className="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto">
-              Cutting-edge technology stack that scales with your business and delivers exceptional performance.
-            </p>
-          </div>
-          
-          {/* Carousel Container */}
-          <div className="relative overflow-hidden rounded-3xl">
-            {/* Glassy background effect */}
-            <div className="absolute inset-0 bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10"></div>
-            
-            {/* Custom fade effects for space theme */}
-            <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-20 bg-gradient-to-r from-slate-900 via-purple-900/50 to-transparent z-10 pointer-events-none"></div>
-            <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-20 bg-gradient-to-l from-slate-900 via-purple-900/50 to-transparent z-10 pointer-events-none"></div>
-            
-            <div className="flex animate-scroll-smooth space-x-3 sm:space-x-4 md:space-x-6 lg:space-x-8 relative z-10 p-3 sm:p-4 md:p-6 lg:p-8">
-              {[...capabilities, ...capabilities, ...capabilities].map((capability, index) => (
-                <div key={index} className="flex-shrink-0">
-                  <div className="w-28 h-28 xs:w-32 xs:h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 flex flex-col items-center justify-center">
-                    {/* Glassy card effect */}
-                    <div className="w-10 h-10 xs:w-12 xs:h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-gradient-to-br from-cyan-500/20 to-purple-600/20 backdrop-blur-md rounded-2xl mx-auto mb-2 xs:mb-3 sm:mb-4 md:mb-6 flex items-center justify-center shadow-2xl border border-white/20">
-                      {capability.icon}
-                    </div>
-                    <div className="text-xs xs:text-sm sm:text-base md:text-lg font-bold text-white text-center leading-tight drop-shadow-lg px-1 xs:px-2">
-                      {capability.title}
-                    </div>
-                  </div>
-              </div>
-            ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Bring Your Ideas to Life - Gamma Inspired */}
       <section className="py-16 sm:py-20 md:py-24 relative overflow-hidden bg-gradient-to-br from-slate-900 via-cyan-900 to-slate-900" aria-label="Portfolio showcase">
         {/* Space Background Elements */}
@@ -547,11 +429,6 @@ const Home = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
             {/* Left Side - Text Content */}
             <div className="space-y-6 text-center lg:text-left">
-              <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-full px-6 py-3 mb-4 border border-cyan-500/30 mx-auto lg:mx-0">
-                <Rocket className="h-5 w-5 text-cyan-400 animate-pulse" />
-                <span className="text-sm font-medium text-cyan-300">Transform Your Vision</span>
-              </div>
-              
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
                 Bring your <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">ideas</span> to life
               </h2>
@@ -560,20 +437,23 @@ const Home = () => {
                 At Zenara Designs we specialize in creating beautiful websites for any industry and we work with you to bring your vision to life without all the technical details so you can focus on your core business.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
-                <Button asChild className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/25 flex items-center space-x-2 w-full sm:w-auto">
-                  <Link to="/services">
-                    <span>Our Services</span>
-                    <ArrowRight className="w-5 h-5" />
-                  </Link>
-                </Button>
-                
-                <Button asChild variant="outline" className="border-cyan-400 text-cyan-400 hover:bg-cyan-400/10 px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-semibold transition-all duration-300 flex items-center space-x-2 w-full sm:w-auto">
-                  <Link to="/projects">
-                    <span>Our Projects</span>
-                    <ArrowRight className="w-5 h-5" />
-                  </Link>
-                </Button>
+              <div className="flex justify-center lg:justify-start">
+                <div 
+                  className={`relative inline-block rounded-full p-[3px] transition-all duration-300 group ${
+                    isServicesButtonHovered 
+                      ? 'bg-purple-500' 
+                      : 'bg-gradient-to-r from-cyan-400 via-purple-500 to-violet-500'
+                  }`}
+                  onMouseEnter={() => setIsServicesButtonHovered(true)}
+                  onMouseLeave={() => setIsServicesButtonHovered(false)}
+                >
+                  <Button asChild className="bg-black hover:bg-purple-500 rounded-full text-white shadow-lg hover:shadow-xl transition-all duration-300 px-6 py-4 sm:px-8 sm:py-5 text-base sm:text-lg font-semibold">
+                    <Link to="/services" className="flex items-center justify-center">
+                      Our Services
+                      <Rocket className="ml-2 h-5 w-5 transition-all duration-300 group-hover:text-cyan-400 group-hover:scale-125" />
+                    </Link>
+                  </Button>
+                </div>
               </div>
             </div>
             
@@ -770,6 +650,89 @@ const Home = () => {
               {/* Fade effects for top and bottom */}
               <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-slate-900 via-cyan-900/50 to-transparent pointer-events-none z-10"></div>
               <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-slate-900 via-cyan-900/50 to-transparent pointer-events-none z-10"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Trusted Partners */}
+      <section className="py-16 sm:py-20 md:py-24 relative overflow-hidden" style={{ backgroundColor: '#e5e7eb' }} aria-label="Our Trusted Partners">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+          <div className="text-center mb-12 sm:mb-16">
+            <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+              Our Trusted Partners
+            </h3>
+          </div>
+          
+          {/* Carousel Container */}
+          <div className="relative overflow-hidden">
+            {/* Fade effects */}
+            <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-20 z-10 pointer-events-none" style={{ background: 'linear-gradient(to right, #e5e7eb, transparent)' }}></div>
+            <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-20 z-10 pointer-events-none" style={{ background: 'linear-gradient(to left, #e5e7eb, transparent)' }}></div>
+            
+            <div className="flex animate-scroll-smooth space-x-6 sm:space-x-8 md:space-x-12 lg:space-x-16 relative z-10 py-4">
+              {[
+                'Shiji',
+                'Shopify Plus',
+                'TikTok',
+                'yotpo.',
+                'Zonal',
+                'access',
+                'BigQuery',
+                'Partner 8',
+                'Partner 9',
+                'Partner 10'
+              ].map((partner, index) => (
+                <div key={index} className="flex-shrink-0">
+                  <div className="flex items-center justify-center h-16 sm:h-20 md:h-24 px-6 sm:px-8 md:px-10">
+                    <div className="text-slate-900 text-lg sm:text-xl md:text-2xl font-semibold whitespace-nowrap">
+                      {partner}
+                    </div>
+                  </div>
+                </div>
+              ))}
+              {/* Duplicate for seamless loop */}
+              {[
+                'Shiji',
+                'Shopify Plus',
+                'TikTok',
+                'yotpo.',
+                'Zonal',
+                'access',
+                'BigQuery',
+                'Partner 8',
+                'Partner 9',
+                'Partner 10'
+              ].map((partner, index) => (
+                <div key={`duplicate-${index}`} className="flex-shrink-0">
+                  <div className="flex items-center justify-center h-16 sm:h-20 md:h-24 px-6 sm:px-8 md:px-10">
+                    <div className="text-slate-900 text-lg sm:text-xl md:text-2xl font-semibold whitespace-nowrap">
+                      {partner}
+                    </div>
+                  </div>
+                </div>
+              ))}
+              {/* Third set for seamless loop */}
+              {[
+                'Shiji',
+                'Shopify Plus',
+                'TikTok',
+                'yotpo.',
+                'Zonal',
+                'access',
+                'BigQuery',
+                'Partner 8',
+                'Partner 9',
+                'Partner 10'
+              ].map((partner, index) => (
+                <div key={`duplicate-2-${index}`} className="flex-shrink-0">
+                  <div className="flex items-center justify-center h-16 sm:h-20 md:h-24 px-6 sm:px-8 md:px-10">
+                    <div className="text-slate-900 text-lg sm:text-xl md:text-2xl font-semibold whitespace-nowrap">
+                      {partner}
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

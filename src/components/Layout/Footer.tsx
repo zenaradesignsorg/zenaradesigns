@@ -83,7 +83,7 @@ const Footer = () => {
         {/* ZENARA Brand Section */}
         <div className="py-16 text-center">
           <h1 className="text-8xl md:text-9xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-white/40 to-white/5 leading-none tracking-widest uppercase" style={{
-            fontFamily: 'Nunito, Quicksand, Poppins, sans-serif',
+            fontFamily: 'Poppins, sans-serif',
             fontWeight: '800',
             letterSpacing: '0.1em',
             textShadow: '0 0 20px rgba(255, 255, 255, 0.1)'
