@@ -24,7 +24,7 @@ export const NAVIGATION_LINKS = [
 // Footer additional links
 export const FOOTER_ADDITIONAL_LINKS = [
   { href: '/faq', label: 'FAQ' },
-  { href: '/locations', label: 'Service Areas' },
+  { href: '/locations', label: 'Locations' },
   { href: '/process', label: 'Our Process' },
   { href: '/security', label: 'Security' },
   { href: '/mobile', label: 'Mobile' },
