@@ -34,6 +34,7 @@ const Home = () => {
     mobile: 0
   });
   const [isVisible, setIsVisible] = useState(false);
+  const [isButtonHovered, setIsButtonHovered] = useState(false);
   const metricsRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
@@ -296,31 +297,32 @@ const Home = () => {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-20 md:py-24 relative z-10 pt-20 sm:pt-24">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center min-h-[80vh]">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-8 sm:gap-10 lg:gap-12 items-center min-h-[80vh]">
             <div className="fade-in order-2 lg:order-1 text-center lg:text-left">
-              <div className="mb-4 flex justify-center lg:justify-start">
-                <span className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/20 to-violet-500/20 border border-cyan-500/30 text-white text-sm font-medium backdrop-blur-sm">
-                  <Sparkles className="w-4 h-4 mr-2 animate-pulse" />
-                  Crafting Digital Excellence
-                </span>
-              </div>
-              <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight text-white">
+              <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 leading-[1.1] sm:leading-[1.15] text-white tracking-[-0.02em] sm:tracking-[-0.03em]">
                 Web Design. Build. Launch
-                <span className="gradient-text"> — <span key={currentSlogan} className="cool-text-animation">{slogans[currentSlogan]}</span></span>
+                <span className="gradient-text"> <span key={currentSlogan} className="cool-text-animation">{slogans[currentSlogan]}</span></span>
               </h1>
               <p className="text-lg sm:text-xl text-white/90 mb-8 leading-relaxed">
                 Zenara Designs creates high-performing websites for Toronto & GTA businesses and professionals using modern development workflows.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
-                <Button asChild className="btn-hero bg-gradient-to-r from-cyan-500 to-violet-600 hover:from-cyan-600 hover:to-violet-700 border-0 text-white shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto">
-                  <Link to="/contact">
-                    Launch Your Project
-                    <Rocket className="ml-2 h-5 w-5" />
-                  </Link>
-                </Button>
-                <Button asChild variant="outline" className="btn-ghost border-cyan-400/70 text-white bg-cyan-500/20 hover:bg-cyan-500/30 hover:border-cyan-300/80 w-full sm:w-auto">
-                  <Link to="/projects">View Our Web Design Portfolio</Link>
-                </Button>
+              <div className="flex justify-center lg:justify-start">
+                <div 
+                  className={`relative inline-block rounded-full p-[4px] transition-all duration-300 group ${
+                    isButtonHovered 
+                      ? 'bg-purple-500' 
+                      : 'bg-gradient-to-r from-cyan-400 via-purple-500 to-violet-500'
+                  }`}
+                  onMouseEnter={() => setIsButtonHovered(true)}
+                  onMouseLeave={() => setIsButtonHovered(false)}
+                >
+                  <Button asChild className="bg-black hover:bg-purple-500 rounded-full text-white shadow-lg hover:shadow-xl transition-all duration-300 px-8 py-6 sm:px-10 sm:py-7 text-lg sm:text-xl font-semibold w-full">
+                    <Link to="/contact" className="flex items-center justify-center">
+                      Launch Your Project
+                      <Rocket className="ml-2 h-6 w-6 transition-all duration-300 group-hover:text-cyan-400 group-hover:scale-125" />
+                    </Link>
+                  </Button>
+                </div>
               </div>
             </div>
 
