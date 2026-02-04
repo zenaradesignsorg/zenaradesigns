@@ -427,15 +427,21 @@ const Mobile = () => {
                 Don't lose potential customers to poor mobile experience. Let us help you create a mobile-first website that converts visitors into customers.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
-                <Button asChild size="lg" className="bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 text-white px-6 py-4 sm:px-8 sm:py-5 md:px-10 md:py-6 rounded-2xl font-semibold text-base sm:text-lg shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 hover:scale-105 w-full sm:w-auto">
-                  <Link to="/contact">
-                    Get Mobile Audit
-                    <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
-                  </Link>
-                </Button>
-                <Button asChild size="lg" className="border-2 border-blue-400 text-blue-300 bg-blue-500/10 px-6 py-4 sm:px-8 sm:py-5 md:px-10 md:py-6 rounded-2xl font-semibold text-base sm:text-lg backdrop-blur-sm hover:bg-blue-500/20 hover:border-blue-300 hover:text-white transition-all duration-300 w-full sm:w-auto">
-                  <Link to="/services">View Our Services</Link>
-                </Button>
+                <div 
+                  className="relative inline-block rounded-full p-[4px] transition-all duration-300 group w-full sm:w-auto"
+                  style={{
+                    background: 'linear-gradient(to right, rgb(34, 211, 238), rgb(168, 85, 247), rgb(139, 92, 246))'
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.background = 'rgb(168, 85, 247)'}
+                  onMouseLeave={(e) => e.currentTarget.style.background = 'linear-gradient(to right, rgb(34, 211, 238), rgb(168, 85, 247), rgb(139, 92, 246))'}
+                >
+                  <Button asChild className="bg-black hover:bg-purple-500 rounded-full text-white shadow-lg hover:shadow-xl transition-all duration-300 px-6 py-4 sm:px-8 sm:py-5 md:px-10 md:py-6 text-base sm:text-lg font-semibold w-full sm:w-auto">
+                    <Link to="/contact" className="flex items-center justify-center">
+                      Get Mobile Audit
+                      <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+                    </Link>
+                  </Button>
+                </div>
               </div>
               <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 md:space-x-8 text-slate-400">
                 <div className="flex items-center space-x-2">

@@ -27,14 +27,16 @@ export const SecurityProvider: React.FC<SecurityProviderProps> = ({ children }) 
   useEffect(() => {
     // Set security headers via meta tags (for client-side)
     const setSecurityMeta = () => {
-      // Set CSP meta tag
+      // Set CSP meta tag (excluding frame-ancestors as it only works in HTTP headers)
       let cspMeta = document.querySelector('meta[http-equiv="Content-Security-Policy"]');
       if (!cspMeta) {
         cspMeta = document.createElement('meta');
         cspMeta.setAttribute('http-equiv', 'Content-Security-Policy');
         document.head.appendChild(cspMeta);
       }
-      cspMeta.setAttribute('content', cspHeader);
+      // Remove frame-ancestors from CSP for meta tag (it only works in HTTP headers)
+      const cspForMeta = cspHeader.replace(/frame-ancestors[^;]*;?\s*/gi, '').trim();
+      cspMeta.setAttribute('content', cspForMeta);
 
       // Set other security meta tags
       const securityMetas = [

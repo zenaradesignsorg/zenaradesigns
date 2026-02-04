@@ -54,6 +54,7 @@ const Payment = () => {
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isProcessing, setIsProcessing] = useState(false);
+  const [isButtonHovered, setIsButtonHovered] = useState(false);
   const { toast } = useToast();
 
   const subscriptionPlans = useMemo<SubscriptionPlan[]>(() => [
@@ -360,19 +361,42 @@ const Payment = () => {
                             <span className="text-cyan-300 text-sm font-semibold">✓ Selected</span>
                           </div>
                         )}
-                        <Button 
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setSelectedPlan(plan.id);
+                        <div 
+                          className="relative inline-block rounded-full p-[4px] transition-all duration-300 w-full touch-manipulation"
+                          style={{
+                            background: isSelected || plan.popular
+                              ? 'linear-gradient(to right, rgb(34, 211, 238), rgb(168, 85, 247), rgb(139, 92, 246))'
+                              : 'linear-gradient(to right, rgb(71, 85, 105), rgb(100, 116, 139))'
                           }}
-                          className={`w-full touch-manipulation ${
-                            isSelected || plan.popular
-                              ? 'bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-2xl font-semibold text-sm sm:text-base shadow-2xl lg:hover:shadow-cyan-500/25 transition-all duration-300 active:scale-95 lg:hover:scale-105' 
-                              : 'bg-gradient-to-r from-slate-600/40 to-slate-500/40 hover:from-slate-600/60 hover:to-slate-500/60 text-slate-200 border border-slate-400/40 hover:border-slate-300 px-6 py-3 sm:px-8 sm:py-4 rounded-2xl font-semibold text-sm sm:text-base backdrop-blur-sm transition-all duration-300 active:scale-95 lg:hover:shadow-lg'
-                          }`}
+                          onMouseEnter={(e) => {
+                            if (isSelected || plan.popular) {
+                              e.currentTarget.style.background = 'rgb(168, 85, 247)';
+                            } else {
+                              e.currentTarget.style.background = 'linear-gradient(to right, rgb(100, 116, 139), rgb(148, 163, 184))';
+                            }
+                          }}
+                          onMouseLeave={(e) => {
+                            if (isSelected || plan.popular) {
+                              e.currentTarget.style.background = 'linear-gradient(to right, rgb(34, 211, 238), rgb(168, 85, 247), rgb(139, 92, 246))';
+                            } else {
+                              e.currentTarget.style.background = 'linear-gradient(to right, rgb(71, 85, 105), rgb(100, 116, 139))';
+                            }
+                          }}
                         >
-                          {isSelected ? 'Selected' : 'Select Plan'}
-                        </Button>
+                          <Button 
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setSelectedPlan(plan.id);
+                            }}
+                            className={`w-full ${
+                              isSelected || plan.popular
+                                ? 'bg-black hover:bg-purple-500 text-white' 
+                                : 'bg-slate-800/80 hover:bg-slate-700/80 text-slate-200'
+                            } rounded-full shadow-lg hover:shadow-xl transition-all duration-300 px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base font-semibold active:scale-95 lg:hover:scale-105`}
+                          >
+                            {isSelected ? 'Selected' : 'Select Plan'}
+                          </Button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -563,23 +587,39 @@ const Payment = () => {
                 />
               </div>
 
-              <Button
-                type="submit"
-                disabled={isProcessing}
-                className="w-full bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white px-6 py-5 sm:py-6 rounded-2xl font-semibold text-base sm:text-lg shadow-2xl lg:hover:shadow-cyan-500/25 transition-all duration-300 active:scale-95 lg:hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation"
-              >
-                {isProcessing ? (
-                  <>
-                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
-                    Processing...
-                  </>
-                ) : (
-                  <>
-                    Proceed to Checkout
-                    <CreditCard className="ml-2 h-5 w-5" />
-                  </>
-                )}
-              </Button>
+              <div className="w-full">
+                <div 
+                  className={`relative inline-block rounded-full p-[4px] transition-all duration-300 w-full ${
+                    isProcessing 
+                      ? 'opacity-50 cursor-not-allowed' 
+                      : ''
+                  } ${
+                    isButtonHovered && !isProcessing
+                      ? 'bg-purple-500' 
+                      : 'bg-gradient-to-r from-cyan-400 via-purple-500 to-violet-500'
+                  }`}
+                  onMouseEnter={() => !isProcessing && setIsButtonHovered(true)}
+                  onMouseLeave={() => setIsButtonHovered(false)}
+                >
+                  <Button
+                    type="submit"
+                    disabled={isProcessing}
+                    className="w-full bg-black hover:bg-purple-500 rounded-full text-white shadow-lg hover:shadow-xl transition-all duration-300 px-6 py-5 sm:py-6 text-base sm:text-lg font-semibold disabled:opacity-100 disabled:cursor-not-allowed touch-manipulation"
+                  >
+                    {isProcessing ? (
+                      <span className="flex items-center justify-center">
+                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                        Processing...
+                      </span>
+                    ) : (
+                      <span className="flex items-center justify-center">
+                        Proceed to Checkout
+                        <CreditCard className="ml-2 h-5 w-5" />
+                      </span>
+                    )}
+                  </Button>
+                </div>
+              </div>
 
               <p className="text-xs sm:text-sm text-slate-400 text-center px-2">
                 Secure checkout powered by Stripe. Your payment information is encrypted and secure.

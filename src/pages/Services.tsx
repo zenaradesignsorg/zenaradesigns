@@ -408,12 +408,21 @@ const Services = () => {
           
           {/* CTA Button */}
           <div className="text-center mt-12">
-            <Button asChild className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white px-8 py-4 sm:px-10 sm:py-5 rounded-2xl font-semibold text-base sm:text-lg shadow-2xl hover:shadow-cyan-500/25 transition-all duration-300 hover:scale-105">
-              <Link to="/faq">
-                View All FAQ
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
+            <div 
+              className="relative inline-block rounded-full p-[4px] transition-all duration-300 group"
+              style={{
+                background: 'linear-gradient(to right, rgb(34, 211, 238), rgb(168, 85, 247), rgb(139, 92, 246))'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.background = 'rgb(168, 85, 247)'}
+              onMouseLeave={(e) => e.currentTarget.style.background = 'linear-gradient(to right, rgb(34, 211, 238), rgb(168, 85, 247), rgb(139, 92, 246))'}
+            >
+              <Button asChild className="bg-black hover:bg-purple-500 rounded-full text-white shadow-lg hover:shadow-xl transition-all duration-300 px-8 py-4 sm:px-10 sm:py-5 text-base sm:text-lg font-semibold">
+                <Link to="/faq" className="flex items-center justify-center">
+                  View All FAQ
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -555,15 +564,21 @@ const Services = () => {
                 Let's create something amazing together. Every great website starts with a conversation.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
-                <Button asChild size="lg" className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white px-6 py-4 sm:px-8 sm:py-5 md:px-10 md:py-6 rounded-2xl font-semibold text-base sm:text-lg shadow-2xl hover:shadow-cyan-500/25 transition-all duration-300 hover:scale-105 w-full sm:w-auto">
-                  <Link to="/contact">
-                    Start Your Project
-                    <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
-                  </Link>
-                </Button>
-                <Button asChild size="lg" className="border-2 border-cyan-400 text-cyan-300 bg-cyan-500/10 px-6 py-4 sm:px-8 sm:py-5 md:px-10 md:py-6 rounded-2xl font-semibold text-base sm:text-lg backdrop-blur-sm hover:bg-cyan-500/20 hover:border-cyan-300 hover:text-white transition-all duration-300 w-full sm:w-auto">
-                  <Link to="/projects">View Our Web Design Portfolio</Link>
-                </Button>
+                <div 
+                  className="relative inline-block rounded-full p-[4px] transition-all duration-300 group"
+                  style={{
+                    background: 'linear-gradient(to right, rgb(34, 211, 238), rgb(168, 85, 247), rgb(139, 92, 246))'
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.background = 'rgb(168, 85, 247)'}
+                  onMouseLeave={(e) => e.currentTarget.style.background = 'linear-gradient(to right, rgb(34, 211, 238), rgb(168, 85, 247), rgb(139, 92, 246))'}
+                >
+                  <Button asChild className="bg-black hover:bg-purple-500 rounded-full text-white shadow-lg hover:shadow-xl transition-all duration-300 px-6 py-4 sm:px-8 sm:py-5 md:px-10 md:py-6 text-base sm:text-lg font-semibold w-full sm:w-auto">
+                    <Link to="/contact" className="flex items-center justify-center">
+                      Start Your Project
+                      <Rocket className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transition-all duration-300 group-hover:text-cyan-400 group-hover:scale-125" />
+                    </Link>
+                  </Button>
+                </div>
               </div>
               <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 md:space-x-8 text-slate-400">
                 <div className="flex items-center space-x-2">
@@ -645,12 +660,21 @@ const Services = () => {
           
           {/* CTA Button */}
           <div className="text-center mt-8">
-            <Button asChild className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-2xl font-semibold text-sm sm:text-base shadow-2xl hover:shadow-cyan-500/25 transition-all duration-300 hover:scale-105">
-              <Link to="/locations">
-                Explore All Service Areas
-                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
-              </Link>
-            </Button>
+            <div 
+              className="relative inline-block rounded-full p-[4px] transition-all duration-300 group"
+              style={{
+                background: 'linear-gradient(to right, rgb(34, 211, 238), rgb(168, 85, 247), rgb(139, 92, 246))'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.background = 'rgb(168, 85, 247)'}
+              onMouseLeave={(e) => e.currentTarget.style.background = 'linear-gradient(to right, rgb(34, 211, 238), rgb(168, 85, 247), rgb(139, 92, 246))'}
+            >
+              <Button asChild className="bg-black hover:bg-purple-500 rounded-full text-white shadow-lg hover:shadow-xl transition-all duration-300 px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base font-semibold">
+                <Link to="/locations" className="flex items-center justify-center">
+                  Explore All Service Areas
+                  <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+                </Link>
+              </Button>
+            </div>
           </div>
           
           {/* Last Updated Date */}

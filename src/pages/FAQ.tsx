@@ -439,17 +439,21 @@ const FAQ = () => {
                 Can't find the answer you're looking for? Our team is ready to help you with your web design needs.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white px-8 py-4 rounded-2xl font-semibold text-base shadow-2xl hover:shadow-cyan-500/25 transition-all duration-300 hover:scale-105">
-                  <Link to="/contact">
-            Contact Us Today
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Link>
-                </Button>
-                <Button asChild className="border-2 border-cyan-400 text-cyan-300 bg-cyan-500/10 px-8 py-4 rounded-2xl font-semibold text-base backdrop-blur-sm hover:bg-cyan-500/20 transition-all duration-300">
-                  <Link to="/pricing">
-                    View Pricing
-                  </Link>
-                </Button>
+                <div 
+                  className="relative inline-block rounded-full p-[4px] transition-all duration-300 group"
+                  style={{
+                    background: 'linear-gradient(to right, rgb(34, 211, 238), rgb(168, 85, 247), rgb(139, 92, 246))'
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.background = 'rgb(168, 85, 247)'}
+                  onMouseLeave={(e) => e.currentTarget.style.background = 'linear-gradient(to right, rgb(34, 211, 238), rgb(168, 85, 247), rgb(139, 92, 246))'}
+                >
+                  <Button asChild className="bg-black hover:bg-purple-500 rounded-full text-white shadow-lg hover:shadow-xl transition-all duration-300 px-8 py-4 text-base font-semibold">
+                    <Link to="/contact" className="flex items-center justify-center">
+                      Contact Us Today
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </Link>
+                  </Button>
+                </div>
               </div>
             </div>
           </div>

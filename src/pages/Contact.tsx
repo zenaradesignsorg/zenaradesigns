@@ -38,6 +38,7 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isButtonHovered, setIsButtonHovered] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -465,23 +466,39 @@ const Contact = () => {
                     aria-label="Leave this field empty"
                   />
 
-                  <Button 
-                    type="submit" 
-                    disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-2xl font-semibold shadow-2xl hover:shadow-cyan-500/25 transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 text-sm sm:text-base min-h-[44px]"
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <div className="animate-spin rounded-full h-4 w-4 sm:h-5 sm:w-5 border-b-2 border-white mr-2"></div>
-                        Sending Message...
-                      </>
-                    ) : (
-                      <>
-                        Send Message
-                        <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
-                      </>
-                    )}
-                  </Button>
+                  <div className="w-full">
+                    <div 
+                      className={`relative inline-block rounded-full p-[4px] transition-all duration-300 w-full ${
+                        isSubmitting 
+                          ? 'opacity-50 cursor-not-allowed' 
+                          : ''
+                      } ${
+                        isButtonHovered && !isSubmitting
+                          ? 'bg-purple-500' 
+                          : 'bg-gradient-to-r from-cyan-400 via-purple-500 to-violet-500'
+                      }`}
+                      onMouseEnter={() => !isSubmitting && setIsButtonHovered(true)}
+                      onMouseLeave={() => setIsButtonHovered(false)}
+                    >
+                      <Button 
+                        type="submit" 
+                        disabled={isSubmitting}
+                        className="w-full bg-black hover:bg-purple-500 rounded-full text-white shadow-lg hover:shadow-xl transition-all duration-300 px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base font-semibold disabled:opacity-100 disabled:cursor-not-allowed min-h-[44px]"
+                      >
+                        {isSubmitting ? (
+                          <span className="flex items-center justify-center">
+                            <div className="animate-spin rounded-full h-4 w-4 sm:h-5 sm:h-5 border-b-2 border-white mr-2"></div>
+                            Sending Message...
+                          </span>
+                        ) : (
+                          <span className="flex items-center justify-center">
+                            Send Message
+                            <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+                          </span>
+                        )}
+                      </Button>
+                    </div>
+                  </div>
 
                   <p className="text-xs sm:text-sm text-slate-300 text-center">
                     We'll get back to you within 24-48 hours with next steps.

@@ -8,6 +8,8 @@ import logo from '@/assets/zenaralogo-transparentbg.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isNavButtonHovered, setIsNavButtonHovered] = useState(false);
+  const [isMobileButtonHovered, setIsMobileButtonHovered] = useState(false);
   const location = useLocation();
 
   // Prevent body scroll when mobile menu is open and manage focus
@@ -66,12 +68,22 @@ const Navbar = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:block">
-            <Button asChild className="bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 hover:from-pink-600 hover:via-purple-600 hover:to-blue-600 text-white border-0 rounded-full px-5 xl:px-6 py-1.5 xl:py-2 text-xs xl:text-sm font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
-              <Link to="/contact" onClick={scrollToTop} className="flex items-center gap-1.5 xl:gap-2">
-                Let's Talk
-                <ArrowRight className="h-3.5 w-3.5 xl:h-4 xl:w-4" />
-              </Link>
-            </Button>
+            <div 
+              className={`relative inline-block rounded-full p-[2px] transition-all duration-300 ${
+                isNavButtonHovered 
+                  ? 'bg-purple-500' 
+                  : 'bg-gradient-to-r from-cyan-400 via-purple-500 to-violet-500'
+              }`}
+              onMouseEnter={() => setIsNavButtonHovered(true)}
+              onMouseLeave={() => setIsNavButtonHovered(false)}
+            >
+              <Button asChild className="bg-black hover:bg-purple-500 rounded-full text-white shadow-lg hover:shadow-xl transition-all duration-300 px-5 xl:px-6 py-1.5 xl:py-2 text-xs xl:text-sm font-semibold">
+                <Link to="/contact" onClick={scrollToTop} className="flex items-center gap-1.5 xl:gap-2">
+                  Let's Talk
+                  <ArrowRight className="h-3.5 w-3.5 xl:h-4 xl:w-4" />
+                </Link>
+              </Button>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -152,21 +164,32 @@ const Navbar = () => {
 
                 {/* CTA Button */}
                 <div className="pt-4">
-                  <Button 
-                    asChild 
-                    className="w-full bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 hover:from-pink-600 hover:via-purple-600 hover:to-blue-600 text-white font-semibold py-3 px-6 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl flex items-center justify-center gap-2"
+                  <div 
+                    className={`relative inline-block rounded-full p-[3px] transition-all duration-300 w-full ${
+                      isMobileButtonHovered 
+                        ? 'bg-purple-500' 
+                        : 'bg-gradient-to-r from-cyan-400 via-purple-500 to-violet-500'
+                    }`}
+                    onMouseEnter={() => setIsMobileButtonHovered(true)}
+                    onMouseLeave={() => setIsMobileButtonHovered(false)}
                   >
-                    <Link 
-                      to="/contact" 
-                      onClick={() => {
-                        setIsOpen(false);
-                        scrollToTop();
-                      }}
+                    <Button 
+                      asChild 
+                      className="w-full bg-black hover:bg-purple-500 rounded-full text-white font-semibold py-3 px-6 shadow-lg transition-all duration-300 hover:shadow-xl"
                     >
-                      Let's Talk
-                      <ArrowRight className="h-4 w-4" />
-                    </Link>
-                  </Button>
+                      <Link 
+                        to="/contact" 
+                        onClick={() => {
+                          setIsOpen(false);
+                          scrollToTop();
+                        }}
+                        className="flex items-center justify-center gap-2"
+                      >
+                        Let's Talk
+                        <ArrowRight className="h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </div>
                 </div>
               </div>
             </div>

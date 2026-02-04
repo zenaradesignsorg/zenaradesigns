@@ -265,17 +265,41 @@ const Pricing = () => {
                     </ul>
 
                     <div className="flex-shrink-0">
-                      <Button 
-                        asChild 
-                        className={`w-full ${plan.popular 
-                          ? 'bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-2xl font-semibold text-sm sm:text-base shadow-2xl hover:shadow-cyan-500/25 transition-all duration-300 hover:scale-105' 
-                          : 'bg-gradient-to-r from-slate-600/40 to-slate-500/40 hover:from-slate-600/60 hover:to-slate-500/60 text-slate-200 border border-slate-400/40 hover:border-slate-300 px-6 py-3 sm:px-8 sm:py-4 rounded-2xl font-semibold text-sm sm:text-base backdrop-blur-sm transition-all duration-300 hover:shadow-lg'
-                        }`}
+                      <div 
+                        className="relative inline-block rounded-full p-[4px] transition-all duration-300 group w-full"
+                        style={{
+                          background: plan.popular
+                            ? 'linear-gradient(to right, rgb(34, 211, 238), rgb(168, 85, 247), rgb(139, 92, 246))'
+                            : 'linear-gradient(to right, rgb(71, 85, 105), rgb(100, 116, 139))'
+                        }}
+                        onMouseEnter={(e) => {
+                          if (plan.popular) {
+                            e.currentTarget.style.background = 'rgb(168, 85, 247)';
+                          } else {
+                            e.currentTarget.style.background = 'linear-gradient(to right, rgb(100, 116, 139), rgb(148, 163, 184))';
+                          }
+                        }}
+                        onMouseLeave={(e) => {
+                          if (plan.popular) {
+                            e.currentTarget.style.background = 'linear-gradient(to right, rgb(34, 211, 238), rgb(168, 85, 247), rgb(139, 92, 246))';
+                          } else {
+                            e.currentTarget.style.background = 'linear-gradient(to right, rgb(71, 85, 105), rgb(100, 116, 139))';
+                          }
+                        }}
                       >
-                        <Link to="/contact">
-                          {plan.cta}
-                        </Link>
-                      </Button>
+                        <Button 
+                          asChild 
+                          className={`w-full ${
+                            plan.popular 
+                              ? 'bg-black hover:bg-purple-500 text-white' 
+                              : 'bg-slate-800/80 hover:bg-slate-700/80 text-slate-200'
+                          } rounded-full shadow-lg hover:shadow-xl transition-all duration-300 px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base font-semibold`}
+                        >
+                          <Link to="/contact" className="flex items-center justify-center">
+                            {plan.cta}
+                          </Link>
+                        </Button>
+                      </div>
                     </div>
                   </div>
                 </div>
