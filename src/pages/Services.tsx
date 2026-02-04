@@ -362,7 +362,7 @@ const Services = () => {
                 {
                   value: "left-item-4",
                   question: "Can you help with existing websites?",
-                  answer: "Absolutely! We specialize in website redesigns, updates, and performance improvements. Whether you need a complete overhaul or just want to modernize specific sections, we can help transform your existing site into something that better serves your business goals."
+                  answer: "We can assist with existing websites if they use a similar technology stack to our preferred modern frameworks. If your current site uses a different technology stack, we typically recommend building a new site with our modern approach for optimal performance and maintainability."
                 },
                 {
                   value: "left-item-5",
@@ -548,13 +548,13 @@ const Services = () => {
         </div>
         
         <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center relative z-10">
-          <div className="relative z-10">
+            <div className="relative z-10">
             <h2 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-4 sm:mb-6 leading-tight">
               Ready to Transform Your
             </h2>
             <h2 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 sm:mb-8 leading-tight">
               <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Business?</span>
-            </h2>
+              </h2>
             <p className="text-base sm:text-lg md:text-xl text-slate-300 mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed px-4">
               Your digital transformation starts here. Let's create something that not only looks incredible but drives real results.
             </p>
@@ -576,15 +576,15 @@ const Services = () => {
               </div>
             </div>
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 md:gap-8 text-white">
-              <div className="flex items-center space-x-2">
+                <div className="flex items-center space-x-2">
                 <div className="w-3 h-3 rounded-full bg-cyan-400"></div>
                 <span className="text-sm sm:text-base">Free Consultation</span>
-              </div>
-              <div className="flex items-center space-x-2">
+                </div>
+                <div className="flex items-center space-x-2">
                 <div className="w-3 h-3 rounded-full bg-purple-500"></div>
                 <span className="text-sm sm:text-base">24h Response</span>
-              </div>
-              <div className="flex items-center space-x-2">
+                </div>
+                <div className="flex items-center space-x-2">
                 <div className="w-3 h-3 rounded-full bg-pink-400"></div>
                 <span className="text-sm sm:text-base">No Obligation</span>
               </div>
