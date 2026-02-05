@@ -99,7 +99,7 @@ const Footer = () => {
 
         {/* Footer Content */}
         <div className="max-w-7xl mx-auto px-6 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-[8fr_5fr_5fr_7fr] gap-8 md:gap-16 lg:gap-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 lg:gap-16">
             {/* Brand */}
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
@@ -159,15 +159,142 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Contact */}
+            {/* Newsletter Subscription */}
             <div>
-              <h3 className="font-semibold mb-4 text-white">Get In Touch</h3>
-              <p className="text-slate-300 mb-4">
-                Ready to transform your digital presence? Let's discuss your project.
+              <h3 className="font-semibold mb-4 text-white">Newsletter</h3>
+              <p className="text-slate-300 mb-4 text-sm">
+                Subscribe to our newsletter and stay updated.
               </p>
-              <Link to="/contact" onClick={scrollToTop} className="inline-block bg-gradient-to-r from-cyan-500/20 to-purple-500/20 hover:from-cyan-500/30 hover:to-purple-500/30 border border-cyan-400/30 hover:border-cyan-400/50 text-cyan-300 hover:text-white text-sm px-6 py-3 rounded-xl transition-all duration-300">
-                Start a Project
-              </Link>
+              <div className="brevo-newsletter-form">
+                <div className="sib-form" style={{ textAlign: 'center', backgroundColor: 'transparent' }}>
+                  <div id="sib-form-container" className="sib-form-container">
+                    <div 
+                      id="sib-container" 
+                      className="sib-container--medium sib-container--vertical" 
+                      style={{
+                        textAlign: 'center',
+                        backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                        maxWidth: '100%',
+                        borderRadius: '12px',
+                        borderWidth: '1px',
+                        borderColor: 'rgba(139, 92, 246, 0.3)',
+                        borderStyle: 'solid',
+                        padding: '16px',
+                        backdropFilter: 'blur(10px)'
+                      }}
+                    >
+                      <form 
+                        id="sib-form" 
+                        method="POST" 
+                        action="https://b15138b6.sibforms.com/serve/MUIFAOwmr3O2pUC0JwxhUO33Gtk7KOqHafuooQffpcwbpwvukxO_KjFdXdJ94mg3dohWwtqZHqbUf9fie3SinOqwOMAqeIr0IjoEoGJvVIfQ9k2CyozaAAmjC34YDF4nimW4H95Rprjd8pRQ3yHsdZx7zNaKlb603EbyZ-z-xl-huvYRjyDBmVt68SGFtzdInTGmUbwwHmr0ZYkaBg=="
+                        className="w-full"
+                      >
+                        <div style={{ padding: '8px 0' }}>
+                          <div className="sib-form-block" style={{ fontSize: '13px', textAlign: 'left', fontFamily: 'Helvetica, sans-serif', color: '#e2e8f0', backgroundColor: 'transparent' }}>
+                            <div className="sib-text-form-block">
+                              <p style={{ margin: 0, color: '#cbd5e1', lineHeight: '1.5' }}>Get the latest insights delivered to your inbox.</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div style={{ padding: '8px 0' }}>
+                          <div className="sib-input sib-form-block">
+                            <div className="form__entry entry_block">
+                              <div className="form__label-row">
+                                <div className="entry__field">
+                                  <input 
+                                    className="input" 
+                                    type="email" 
+                                    id="EMAIL" 
+                                    name="EMAIL" 
+                                    autoComplete="off" 
+                                    placeholder="Enter your email" 
+                                    data-required="true" 
+                                    required
+                                    style={{
+                                      width: '100%',
+                                      padding: '10px 14px',
+                                      borderRadius: '8px',
+                                      border: '1px solid rgba(139, 92, 246, 0.3)',
+                                      backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                                      color: '#ffffff',
+                                      fontSize: '14px',
+                                      fontFamily: 'inherit',
+                                      outline: 'none',
+                                      transition: 'all 0.3s ease'
+                                    }}
+                                    onFocus={(e) => {
+                                      e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.6)';
+                                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.15)';
+                                    }}
+                                    onBlur={(e) => {
+                                      e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.3)';
+                                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+                                    }}
+                                  />
+                                </div>
+                              </div>
+                              <label className="entry__error entry__error--primary" style={{ fontSize: '12px', textAlign: 'left', fontFamily: 'Helvetica, sans-serif', color: '#fca5a5', backgroundColor: 'rgba(239, 68, 68, 0.1)', borderRadius: '3px', borderColor: '#ef4444', padding: '4px 8px', marginTop: '4px', display: 'block' }}></label>
+                              <label className="entry__specification" style={{ fontSize: '11px', textAlign: 'left', fontFamily: 'Helvetica, sans-serif', color: '#94a3b8', marginTop: '6px', display: 'block', lineHeight: '1.4' }}>
+                                We'll never share your email. Unsubscribe anytime.
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div style={{ padding: '8px 0' }}>
+                          <div className="sib-form-block" style={{ textAlign: 'left' }}>
+                            <button 
+                              className="sib-form-block__button sib-form-block__button-with-loader" 
+                              style={{
+                                fontSize: '14px',
+                                textAlign: 'center',
+                                fontWeight: '600',
+                                fontFamily: 'Helvetica, sans-serif',
+                                color: '#FFFFFF',
+                                background: 'linear-gradient(to right, rgb(34, 211, 238), rgb(168, 85, 247))',
+                                borderRadius: '8px',
+                                borderWidth: '0px',
+                                padding: '10px 20px',
+                                width: '100%',
+                                cursor: 'pointer',
+                                transition: 'all 0.3s ease',
+                                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+                              }}
+                              form="sib-form" 
+                              type="submit"
+                              onMouseEnter={(e) => {
+                                e.currentTarget.style.background = 'linear-gradient(to right, rgb(34, 211, 238), rgb(147, 51, 234))';
+                                e.currentTarget.style.transform = 'translateY(-1px)';
+                                e.currentTarget.style.boxShadow = '0 6px 8px -1px rgba(0, 0, 0, 0.15)';
+                              }}
+                              onMouseLeave={(e) => {
+                                e.currentTarget.style.background = 'linear-gradient(to right, rgb(34, 211, 238), rgb(168, 85, 247))';
+                                e.currentTarget.style.transform = 'translateY(0)';
+                                e.currentTarget.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+                              }}
+                            >
+                              <svg className="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512" style={{ display: 'none' }}>
+                                <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" />
+                              </svg>
+                              SUBSCRIBE
+                            </button>
+                          </div>
+                        </div>
+                        <input 
+                          type="text" 
+                          name="email_address_check" 
+                          value="" 
+                          className="input--hidden" 
+                          style={{ display: 'none', visibility: 'hidden', position: 'absolute', left: '-9999px' }}
+                          tabIndex={-1}
+                          aria-hidden="true"
+                        />
+                        <input type="hidden" name="locale" value="en" />
+                        <input type="hidden" name="html_type" value="simple" />
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
