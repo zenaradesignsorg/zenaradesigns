@@ -24,18 +24,6 @@
       ],
       "destination": "https://zenaradesigns.com/$1",
       "permanent": true
-    },
-    {
-      "source": "/services-directory",
-      "destination": "/404",
-      "permanent": false,
-      "statusCode": 404
-    },
-    {
-      "source": "/pricing-guide",
-      "destination": "/404",
-      "permanent": false,
-      "statusCode": 404
     }
   ],
   "rewrites": [
