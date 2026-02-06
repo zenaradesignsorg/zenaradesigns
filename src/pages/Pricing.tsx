@@ -26,15 +26,15 @@ const Pricing = () => {
       price: "$999",
       description: "Perfect for freelancers and personal brands",
       features: [
-        "1-3 pages (Home, About, Contact)",
-        "Clean one-pager or portfolio design",
+        "Up to 3 pages (Home, About, Contact)",
+        "Modern portfolio-style design",
         "Mobile-responsive layout",
-        "Contact form integration",
-        "Basic SEO optimization",
-        "One month of free hosting",
-        "SSL and basic security included",
-        "1 week turnaround",
-        "14 days of support"
+        "Contact form + email notifications",
+        "SEO setup (titles/meta, indexing, analytics)",
+        "1 month free hosting",
+        "SSL + baseline security included",
+        "1-week turnaround (once content is received)",
+        "14 days post-launch support (bug fixes + minor edits)"
       ],
       cta: "Choose Starter",
       popular: false
@@ -47,16 +47,15 @@ const Pricing = () => {
       features: [
         "Up to 6 pages (Home, About, Services, Projects, Pricing, Contact)",
         "Custom sections and layouts",
-        "Custom form integration",
-        "SEO essentials and optimization",
-        "Mobile optimized",
+        "Custom forms (contact/quote/booking)",
+        "SEO setup (titles/meta, indexing, sitemap)",
+        "Mobile-first responsive design",
         "Basic animations",
         "2 rounds of revisions included",
-        "2-3 weeks turnaround",
-        "SSL and basic security included",
-        "Image optimization and performance enhancements",
-        "Analytics integration",
-        "30 days of support"
+        "2–3 week turnaround (once content is received)",
+        "SSL + baseline security included",
+        "Performance optimization (images + speed)",
+        "30 days post-launch support (bug fixes + minor edits)"
       ],
       cta: "Choose Small Business",
       popular: true
@@ -67,16 +66,16 @@ const Pricing = () => {
       price: "$4,999+",
       description: "For businesses needing advanced functionality",
       features: [
-        "Everything in Starter and Small Business",
-        "Unlimited pages and sections",
-        "Custom design system and animations",
-        "Integrations like Calendly, Email Newsletter, Blog, etc.",
-        "Custom components and functionality",
-        "Headless CMS or e-commerce setup",
-        "Priority support and maintenance",
-        "Performance + accessibility audit",
-        "3-4 weeks turnaround",
-        "60 days of support"
+        "Everything in Small Business",
+        "Multi-page site (10+ pages) with custom sections",
+        "Custom design system + premium animations",
+        "Advanced integrations (Calendly, Stripe, newsletter, etc.)",
+        "Custom components + tailored functionality",
+        "E-commerce store setup (platform-based) with checkout + payments",
+        "Performance optimization",
+        "Priority support + optional maintenance plan",
+        "3–4 week turnaround (once content is received)",
+        "60 days post-launch support (bug fixes + minor edits)"
       ],
       cta: "Request Custom Quote",
       popular: false
@@ -114,11 +113,10 @@ const Pricing = () => {
       monthlyPrice: 45,
       annualPrice: 486, // 10% discount: $45 * 12 * 0.9 = $486
       features: [
-        'High-performance managed hosting (non-WordPress)',
-        'SSL security + uptime monitoring',
-        'Automated backups',
-        'Minor content updates (up to 30 min/month)',
-        'Email support'
+        'Managed hosting (modern stack) + SSL',
+        'Monitoring + basic security checks',
+        'Daily backups + restore support',
+        '30 min/month minor updates + email support (1–2 business days)'
       ],
       bestFor: 'Simple sites, portfolios, new businesses',
       popular: false
@@ -131,11 +129,11 @@ const Pricing = () => {
       annualPrice: 756, // 10% discount: $70 * 12 * 0.9 = $756
       features: [
         'Everything in Core, plus:',
-        'Performance audits and more traffic',
-        'Lead form & submission monitoring',
-        'Google Analytics + monthly traffic summary',
-        'Up to 1 hour of content updates/month',
-        'Priority support'
+        'Monthly performance check + light optimization (speed, UX, small fixes)',
+        'Lead form monitoring (submission tests + alerts if something breaks)',
+        'Google Analytics setup + monthly traffic summary',
+        '60 min/month updates (text, images, links, small section tweaks)',
+        'Priority support (1 business day)'
       ],
       bestFor: 'Professional individuals, local businesses, service providers',
       popular: true
@@ -148,11 +146,9 @@ const Pricing = () => {
       annualPrice: 1620, // 10% discount: $150 * 12 * 0.9 = $1620
       features: [
         'Everything in Grow, plus:',
-        'Advanced speed & performance tuning',
-        'Booking systems & integrations',
-        'New simple pages or features or additions',
-        'Up to 2 hours of updates/month',
-        'Proactive site improvement recommendations',
+        'Advanced performance tuning (Core Web Vitals)',
+        'Integrations support (booking, email, CRM, payments)',
+        '120 min/month updates + simple new pages/sections (within included time)',
         'Same-day support'
       ],
       bestFor: 'High-conversion sites, coaches, growing brands',
@@ -299,9 +295,9 @@ const Pricing = () => {
                           } rounded-full shadow-lg hover:shadow-xl transition-all duration-300 px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base font-semibold`}
                         >
                           <Link to="/contact" className="flex items-center justify-center">
-                            {plan.cta}
-                          </Link>
-                        </Button>
+                          {plan.cta}
+                        </Link>
+                      </Button>
                       </div>
                     </div>
                   </div>
@@ -390,6 +386,13 @@ const Pricing = () => {
                 </div>
               );
             })}
+          </div>
+          
+          {/* Optional Note */}
+          <div className="mt-8 sm:mt-12 text-center">
+            <p className="text-slate-600 text-sm sm:text-base max-w-3xl mx-auto">
+              <em>Complex custom development, e-commerce, and major redesigns are quoted separately.</em>
+            </p>
           </div>
         </div>
       </section>
@@ -542,7 +545,7 @@ const Pricing = () => {
                     <ChevronDown className="h-5 w-5 shrink-0 data-[state=closed]:text-purple-600 data-[state=open]:text-white group-hover:text-white transition-all duration-200 relative z-10" />
                   </AccordionTrigger>
                   <AccordionContent className="px-4 sm:px-6 pb-4 sm:pb-5 text-white text-sm sm:text-base leading-relaxed">
-                    {faq.answer}
+                          {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
               ))}
