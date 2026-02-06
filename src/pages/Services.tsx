@@ -447,6 +447,67 @@ const Services = () => {
         </div>
       </section>
 
+      {/* Service Areas - Animated Scrolling */}
+      <section className="service-areas py-16 sm:py-20 md:py-24 relative overflow-hidden" style={{ backgroundColor: '#e5e7eb' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold mb-6 sm:mb-8" style={{ color: '#6b21a8' }}>
+              Serving the <span className="bg-gradient-to-r from-cyan-600 to-purple-600 bg-clip-text text-transparent">Greater Toronto Area</span>
+            </h2>
+            <p className="text-base sm:text-lg md:text-xl text-slate-700 max-w-3xl mx-auto leading-relaxed px-4">
+              We provide web design and development services across the GTA
+                    </p>
+                  </div>
+                  
+          {/* Animated Scrolling Cities */}
+          <div className="relative overflow-hidden">
+            {/* Top Row - Scrolling Left */}
+            <div className="mb-6 sm:mb-8">
+              <div className="flex animate-scroll-left">
+                {[
+                  'Toronto', 'Mississauga', 'Brampton', 'Vaughan', 'Markham',
+                  'Richmond Hill', 'Oakville', 'Burlington', 'Hamilton', 'Ajax',
+                  'Toronto', 'Mississauga', 'Brampton', 'Vaughan', 'Markham',
+                  'Richmond Hill', 'Oakville', 'Burlington', 'Hamilton', 'Ajax'
+                ].map((city, index) => (
+                  <div
+                    key={`top-${index}`}
+                    className="flex-shrink-0 mx-4 sm:mx-6 md:mx-8 px-6 sm:px-8 md:px-10 py-4 sm:py-5 bg-white rounded-2xl shadow-md border border-purple-200 hover:border-purple-400 transition-all duration-300 hover:shadow-lg"
+                    style={{ minWidth: 'fit-content' }}
+                  >
+                    <span className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-cyan-600 to-purple-600 bg-clip-text text-transparent whitespace-nowrap">
+                      {city}
+                    </span>
+                </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Bottom Row - Scrolling Right */}
+            <div>
+              <div className="flex animate-scroll-right">
+                {[
+                  'Pickering', 'Whitby', 'Oshawa', 'Newmarket', 'Aurora',
+                  'Milton', 'Caledon', 'Halton Hills', 'Georgina', 'Clarington',
+                  'Pickering', 'Whitby', 'Oshawa', 'Newmarket', 'Aurora',
+                  'Milton', 'Caledon', 'Halton Hills', 'Georgina', 'Clarington'
+                ].map((city, index) => (
+                  <div
+                    key={`bottom-${index}`}
+                    className="flex-shrink-0 mx-4 sm:mx-6 md:mx-8 px-6 sm:px-8 md:px-10 py-4 sm:py-5 bg-white rounded-2xl shadow-md border border-purple-200 hover:border-purple-400 transition-all duration-300 hover:shadow-lg"
+                    style={{ minWidth: 'fit-content' }}
+                  >
+                    <span className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-600 to-cyan-600 bg-clip-text text-transparent whitespace-nowrap">
+                      {city}
+                    </span>
+              </div>
+            ))}
+          </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* What Our Clients Say */}
       <section className="services-testimonials py-16 sm:py-20 md:py-24 relative overflow-hidden" style={{ backgroundColor: '#e5e7eb' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
