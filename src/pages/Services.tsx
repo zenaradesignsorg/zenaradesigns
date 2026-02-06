@@ -574,16 +574,17 @@ const Services = () => {
 
             {/* Dots Indicator */}
             <div className="flex justify-center mt-8">
-              <div className="flex space-x-2">
+              <div className="flex space-x-1.5 sm:space-x-2">
                 {testimonials.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentTestimonial(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    className={`w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
                       index === currentTestimonial 
-                        ? 'bg-purple-600 scale-125' 
+                        ? 'bg-purple-600 scale-110 sm:scale-125' 
                         : 'bg-purple-300 hover:bg-purple-400'
                     }`}
+                    aria-label={`Go to testimonial ${index + 1}`}
                   />
                 ))}
               </div>
