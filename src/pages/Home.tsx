@@ -9,8 +9,18 @@ import realEstateWebImage from '@/assets/website-example-realestate.png';
 import rocketWebImage from '@/assets/website-example-rocket.png';
 import gardenWebImage from '@/assets/website-example-garden.png';
 import travelWebImage from '@/assets/website-example-travel.png';
+import shopifyLogo from '@/assets/shopify.svg';
+import vercelLogo from '@/assets/vercel.svg';
+import cloudflareLogo from '@/assets/cloudflare.svg';
+import stripeLogo from '@/assets/stripe-2.svg';
+import figmaLogo from '@/assets/figma.svg';
+import calendlyLogo from '@/assets/calendly.svg';
+import namecheapLogo from '@/assets/namecheap.svg';
+import googleAnalyticsLogo from '@/assets/googleanalytics.svg';
+import instagramLogo from '@/assets/instagram.svg';
 import { useState, useEffect, useRef, memo, useCallback, useMemo } from 'react';
 import StructuredData from '@/components/StructuredData';
+import GoogleReviews from '@/components/GoogleReviews';
 
 const Home = () => {
   // Scroll to top when component mounts
@@ -463,69 +473,76 @@ const Home = () => {
             <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-20 z-10 pointer-events-none" style={{ background: 'linear-gradient(to right, #e5e7eb, transparent)' }}></div>
             <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-20 z-10 pointer-events-none" style={{ background: 'linear-gradient(to left, #e5e7eb, transparent)' }}></div>
             
-            <div className="flex animate-scroll-smooth space-x-6 sm:space-x-8 md:space-x-12 lg:space-x-16 relative z-10 py-4">
+            <div className="flex animate-scroll-smooth space-x-8 sm:space-x-12 md:space-x-16 lg:space-x-20 relative z-10 py-4">
+              {/* Company logos array */}
               {[
-                'Shiji',
-                'Shopify Plus',
-                'TikTok',
-                'yotpo.',
-                'Zonal',
-                'access',
-                'BigQuery',
-                'Partner 8',
-                'Partner 9',
-                'Partner 10'
-              ].map((partner, index) => (
+                { name: 'Shopify', logo: shopifyLogo },
+                { name: 'Vercel', logo: vercelLogo },
+                { name: 'Cloudflare', logo: cloudflareLogo },
+                { name: 'Stripe', logo: stripeLogo },
+                { name: 'Figma', logo: figmaLogo },
+                { name: 'Calendly', logo: calendlyLogo },
+                { name: 'Namecheap', logo: namecheapLogo },
+                { name: 'Google Analytics', logo: googleAnalyticsLogo },
+                { name: 'Instagram', logo: instagramLogo },
+              ].map((company, index) => (
                 <div key={index} className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-16 sm:h-20 md:h-24 px-6 sm:px-8 md:px-10">
-                    <div className="text-slate-900 text-lg sm:text-xl md:text-2xl font-semibold whitespace-nowrap">
-                      {partner}
+                  <div className="flex items-center justify-center h-16 sm:h-20 md:h-24 px-4 sm:px-6 md:px-8">
+                    <img
+                      src={company.logo}
+                      alt={company.name}
+                      className="h-12 sm:h-16 md:h-20 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0"
+                      loading="lazy"
+                    />
                     </div>
-                  </div>
-                </div>
+                    </div>
               ))}
               {/* Duplicate for seamless loop */}
               {[
-                'Shiji',
-                'Shopify Plus',
-                'TikTok',
-                'yotpo.',
-                'Zonal',
-                'access',
-                'BigQuery',
-                'Partner 8',
-                'Partner 9',
-                'Partner 10'
-              ].map((partner, index) => (
+                { name: 'Shopify', logo: shopifyLogo },
+                { name: 'Vercel', logo: vercelLogo },
+                { name: 'Cloudflare', logo: cloudflareLogo },
+                { name: 'Stripe', logo: stripeLogo },
+                { name: 'Figma', logo: figmaLogo },
+                { name: 'Calendly', logo: calendlyLogo },
+                { name: 'Namecheap', logo: namecheapLogo },
+                { name: 'Google Analytics', logo: googleAnalyticsLogo },
+                { name: 'Instagram', logo: instagramLogo },
+              ].map((company, index) => (
                 <div key={`duplicate-${index}`} className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-16 sm:h-20 md:h-24 px-6 sm:px-8 md:px-10">
-                    <div className="text-slate-900 text-lg sm:text-xl md:text-2xl font-semibold whitespace-nowrap">
-                      {partner}
-                    </div>
-                  </div>
-                </div>
-              ))}
-              {/* Third set for seamless loop */}
-              {[
-                'Shiji',
-                'Shopify Plus',
-                'TikTok',
-                'yotpo.',
-                'Zonal',
-                'access',
-                'BigQuery',
-                'Partner 8',
-                'Partner 9',
-                'Partner 10'
-              ].map((partner, index) => (
-                <div key={`duplicate-2-${index}`} className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-16 sm:h-20 md:h-24 px-6 sm:px-8 md:px-10">
-                    <div className="text-slate-900 text-lg sm:text-xl md:text-2xl font-semibold whitespace-nowrap">
-                      {partner}
-                    </div>
+                  <div className="flex items-center justify-center h-16 sm:h-20 md:h-24 px-4 sm:px-6 md:px-8">
+                    <img
+                      src={company.logo}
+                      alt={company.name}
+                      className="h-12 sm:h-16 md:h-20 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0"
+                      loading="lazy"
+                    />
                   </div>
               </div>
             ))}
+              {/* Third set for seamless loop */}
+              {[
+                { name: 'Shopify', logo: shopifyLogo },
+                { name: 'Vercel', logo: vercelLogo },
+                { name: 'Cloudflare', logo: cloudflareLogo },
+                { name: 'Stripe', logo: stripeLogo },
+                { name: 'Figma', logo: figmaLogo },
+                { name: 'Calendly', logo: calendlyLogo },
+                { name: 'Namecheap', logo: namecheapLogo },
+                { name: 'Google Analytics', logo: googleAnalyticsLogo },
+                { name: 'Instagram', logo: instagramLogo },
+              ].map((company, index) => (
+                <div key={`duplicate-2-${index}`} className="flex-shrink-0">
+                  <div className="flex items-center justify-center h-16 sm:h-20 md:h-24 px-4 sm:px-6 md:px-8">
+                    <img
+                      src={company.logo}
+                      alt={company.name}
+                      className="h-12 sm:h-16 md:h-20 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -973,6 +990,9 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Google Reviews */}
+      <GoogleReviews />
 
       {/* CTA Band */}
       <section className="py-20 sm:py-28 md:py-32 relative overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-black">
