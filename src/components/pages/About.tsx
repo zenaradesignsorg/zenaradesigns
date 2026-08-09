@@ -146,12 +146,13 @@ const About = () => {
 
             <TextReveal
               as="h1"
+              className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extralight leading-[0.95] tracking-[-0.04em]"
               staggerMs={130}
               lines={[
-                <span key="l1" className="block font-light text-white/90 text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extralight leading-[0.95] tracking-[-0.04em] pb-3">
+                <span key="l1" className="block font-light text-white/90">
                   Built by engineers.
                 </span>,
-                <span key="l2" className="block text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extralight leading-[0.95] tracking-[-0.04em] bg-gradient-to-r from-cyan-300 via-purple-300 to-cyan-300 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient font-normal mt-2">
+                <span key="l2" className="block bg-gradient-to-r from-cyan-300 via-purple-300 to-cyan-300 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient font-normal mt-2">
                   Obsessed with craft.
                 </span>,
               ]}
@@ -207,13 +208,14 @@ const About = () => {
                 </p>
               </FadeIn>
               <TextReveal
+                className="text-3xl sm:text-4xl md:text-5xl font-extralight leading-[1.1] tracking-[-0.04em]"
                 staggerMs={120}
                 baseDelayMs={60}
                 lines={[
-                  <span key="l1" className="block text-3xl sm:text-4xl md:text-5xl font-extralight text-white/90 leading-[1.1] tracking-[-0.04em]">
+                  <span key="l1" className="block text-white/90">
                     Why we built
                   </span>,
-                  <span key="l2" className="block text-3xl sm:text-4xl md:text-5xl font-extralight bg-gradient-to-r from-cyan-300 via-purple-300 to-cyan-300 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient leading-[1.1] tracking-[-0.04em] mt-1">
+                  <span key="l2" className="block bg-gradient-to-r from-cyan-300 via-purple-300 to-cyan-300 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient mt-1">
                     Zenara Designs
                   </span>,
                 ]}
@@ -374,13 +376,14 @@ const About = () => {
                 </p>
               </FadeIn>
               <TextReveal
+                className="text-3xl sm:text-4xl md:text-5xl font-extralight leading-[1.05] tracking-[-0.04em]"
                 staggerMs={120}
                 baseDelayMs={60}
                 lines={[
-                  <span key="l1" className="block text-3xl sm:text-4xl md:text-5xl font-extralight text-white/90 leading-[1.05] tracking-[-0.04em]">
+                  <span key="l1" className="block text-white/90">
                     The stack behind
                   </span>,
-                  <span key="l2" className="block text-3xl sm:text-4xl md:text-5xl font-extralight bg-gradient-to-r from-cyan-300 via-purple-300 to-cyan-300 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient leading-[1.05] tracking-[-0.04em] mt-1">
+                  <span key="l2" className="block bg-gradient-to-r from-cyan-300 via-purple-300 to-cyan-300 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient mt-1">
                     every site we build
                   </span>,
                 ]}

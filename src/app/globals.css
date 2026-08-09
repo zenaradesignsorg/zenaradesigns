@@ -1199,8 +1199,41 @@
   }
 }
 
+/*
+ * Every .animate-gradient in the app is a bg-clip-text gradient heading.
+ *
+ * background-clip: text paints the gradient only inside the element's own
+ * background box. These headings run tight leading (0.92–1.0), so the box is
+ * shorter than the glyphs — descenders on g/j/y/p hang below it, lose their
+ * fill, and read as the letter being sliced off flat.
+ *
+ * Extend the paint area downward and pull the same amount back out of the flow,
+ * so the fix costs nothing in layout. The gradients here are all horizontal, so
+ * a slightly taller box doesn't change how they render. On inline spans this is
+ * inert both ways — margin-bottom does nothing, padding-bottom doesn't affect
+ * line height, and inline boxes are already tall enough to hold descenders.
+ *
+ * The two halves sit on opposite sides of the cascade on purpose:
+ *
+ *  - padding-bottom is declared here, after `@tailwind utilities`, so it beats
+ *    the per-element pb-* patches previously used to work around this one
+ *    element at a time (pb-1 is 4px, nowhere near enough at text-8xl).
+ *  - margin-bottom goes in @layer base below, which Tailwind emits *before*
+ *    utilities, so an explicit mb-* utility still wins. 21 headings across the
+ *    industry and location pages set mb-2/3/4 on the gradient element itself;
+ *    declaring the negative margin after utilities would silently eat that
+ *    spacing. Those elements end up 0.2em taller, which is the harmless
+ *    direction to be wrong in.
+ */
 .animate-gradient {
   animation: gradient 8s ease infinite;
+  padding-bottom: 0.2em;
+}
+
+@layer base {
+  .animate-gradient {
+    margin-bottom: -0.2em;
+  }
 }
 
 .animate-jiggle {
@@ -1476,28 +1509,64 @@
   transition-delay: 0.12s;
 }
 
-/* ── Contact page rocket animations ── */
-@keyframes rocket-drift {
-  0%   { transform: translate(0, 0) rotate(-42deg); opacity: 0; }
-  8%   { opacity: 0.06; }
-  92%  { opacity: 0.06; }
-  100% { transform: translate(240px, -340px) rotate(-42deg); opacity: 0; }
+/* ── Contact page rocket flybys ──
+ *
+ * A rocket crosses the section, then the track sits empty until the cycle comes
+ * round again — the flight occupies the first 20% of the duration and the
+ * remaining 80% parks it off-screen at opacity 0. Staggering the three delays
+ * puts a crossing on screen roughly every 14s.
+ *
+ * Both axes are measured in vw so the climb angle stays a constant 5.5°
+ * regardless of viewport, which is what lets the exhaust trail below sit at one
+ * fixed angle and still line up with the direction of travel. The climb is kept
+ * shallow so the top lane doesn't carry a rocket up behind the navbar.
+ *
+ * fill-mode both is load-bearing: a delayed animation renders the element's
+ * normal styles until it starts, so without `backwards` each rocket sits fully
+ * opaque and motionless through its delay. `forwards` covers reduced motion,
+ * where the global rule collapses the duration to 0.01ms — the animation ends
+ * instantly and holds the final frame (opacity 0) instead of snapping back to a
+ * visible emoji parked on the page.
+ */
+@keyframes rocket-fly {
+  0%   { transform: translate(0, 0);           opacity: 0; }
+  2%   {                                       opacity: 1; }
+  17%  {                                       opacity: 1; }
+  20%  { transform: translate(125vw, -12vw);   opacity: 0; }
+  100% { transform: translate(125vw, -12vw);   opacity: 0; }
 }
-@keyframes rocket-drift-b {
-  0%   { transform: translate(0, 0) rotate(-38deg); opacity: 0; }
-  10%  { opacity: 0.05; }
-  90%  { opacity: 0.05; }
-  100% { transform: translate(180px, -260px) rotate(-38deg); opacity: 0; }
+
+.rocket {
+  position: absolute;
+  left: -10%;
+  animation: rocket-fly 42s linear infinite both;
+  will-change: transform, opacity;
 }
-@keyframes rocket-drift-c {
-  0%   { transform: translate(0, 0) rotate(-45deg); opacity: 0; }
-  12%  { opacity: 0.04; }
-  88%  { opacity: 0.04; }
-  100% { transform: translate(160px, -220px) rotate(-45deg); opacity: 0; }
+
+/* The glyph's nose already points 45° up-right, so it only needs the difference
+   between that and the 5.5° flight path. */
+.rocket-glyph {
+  display: block;
+  transform: rotate(39.5deg);
+  filter: drop-shadow(0 0 10px rgba(103, 232, 249, 0.45));
 }
-.rocket-a { animation: rocket-drift   28s ease-in-out infinite; }
-.rocket-b { animation: rocket-drift-b 22s ease-in-out infinite; animation-delay: 9s; }
-.rocket-c { animation: rocket-drift-c 35s ease-in-out infinite; animation-delay: 19s; }
+
+.rocket-trail {
+  position: absolute;
+  right: 55%;
+  top: 55%;
+  width: 8rem;
+  height: 2px;
+  border-radius: 999px;
+  transform: rotate(-5.5deg);
+  transform-origin: right center;
+  background: linear-gradient(to left, rgba(103, 232, 249, 0.6), rgba(167, 139, 250, 0.25) 45%, transparent);
+  filter: blur(1px);
+}
+
+.rocket-a { top: 28%; animation-delay: 1s; }
+.rocket-b { top: 52%; animation-delay: 15s; }
+.rocket-c { top: 76%; animation-delay: 29s; }
 
 /* ── Newsletter input placeholder (Brevo/SIB embed) ── */
 #sib-container #EMAIL::placeholder             { color: #94a3b8 !important; opacity: 1 !important; }

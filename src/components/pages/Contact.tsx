@@ -157,10 +157,19 @@ const Contact = () => {
           <div className="absolute top-1/4 left-1/5 w-[650px] h-[650px] bg-gradient-to-br from-cyan-600/10 to-purple-700/10 rounded-full blur-3xl" />
           <div className="absolute bottom-1/4 right-1/5 w-[550px] h-[550px] bg-gradient-to-tl from-purple-600/12 to-cyan-600/8 rounded-full blur-3xl" />
           <div className="absolute top-2/3 left-1/2 -translate-x-1/2 w-[400px] h-[300px] bg-gradient-to-r from-cyan-500/6 to-purple-500/6 rounded-full blur-3xl" />
-          {/* Animated rockets */}
-          <div className="rocket-a absolute text-4xl select-none" style={{ bottom: '18%', left: '6%' }} aria-hidden="true">🚀</div>
-          <div className="rocket-b absolute text-2xl select-none" style={{ bottom: '40%', left: '42%' }} aria-hidden="true">🚀</div>
-          <div className="rocket-c absolute text-3xl select-none" style={{ bottom: '8%', left: '68%' }} aria-hidden="true">🚀</div>
+          {/* Rocket flybys — one crosses the section every ~14s */}
+          <div className="rocket rocket-a text-4xl select-none" aria-hidden="true">
+            <span className="rocket-trail" />
+            <span className="rocket-glyph">🚀</span>
+          </div>
+          <div className="rocket rocket-b text-2xl select-none" aria-hidden="true">
+            <span className="rocket-trail" />
+            <span className="rocket-glyph">🚀</span>
+          </div>
+          <div className="rocket rocket-c text-3xl select-none" aria-hidden="true">
+            <span className="rocket-trail" />
+            <span className="rocket-glyph">🚀</span>
+          </div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
